@@ -1,0 +1,10 @@
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\obj\Debug\LINQ.csproj.AssemblyReference.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\obj\Debug\LINQ.Form1.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\obj\Debug\LINQ.Properties.Resources.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\obj\Debug\LINQ.csproj.GenerateResource.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\obj\Debug\LINQ.csproj.CoreCompileInputs.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\bin\Debug\LINQ.exe.config
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\bin\Debug\LINQ.exe
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\bin\Debug\LINQ.pdb
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\obj\Debug\LINQ.exe
+C:\Users\Ozzca\OneDrive\Documentos\BD\LINQ\LINQ\obj\Debug\LINQ.pdb

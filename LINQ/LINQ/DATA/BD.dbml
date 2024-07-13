@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parcial2_Progra5" Class="BDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ALLEGRO\SQLEXPRESS;Initial Catalog=Parcial2_Progra5;Persist Security Info=True;User ID=sa;Trust Server Certificate=True" SettingsObjectName="LINQ.Properties.Settings" SettingsPropertyName="Parcial2_Progra5ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.carrera" Member="carreras">
+    <Type Name="carrera">
+      <Column Name="id_carrera" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_carrera" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_carrera" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
