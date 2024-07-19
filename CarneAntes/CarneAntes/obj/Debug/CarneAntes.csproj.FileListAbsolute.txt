@@ -1,0 +1,11 @@
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\bin\Debug\CarneAntes.exe.config
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\bin\Debug\CarneAntes.exe
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\bin\Debug\CarneAntes.pdb
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\obj\Debug\CarneAntes.csproj.AssemblyReference.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\obj\Debug\CarneAntes.csproj.SuggestedBindingRedirects.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\obj\Debug\CarneAntes.Form1.resources
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\obj\Debug\CarneAntes.Properties.Resources.resources
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\obj\Debug\CarneAntes.csproj.GenerateResource.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\obj\Debug\CarneAntes.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\obj\Debug\CarneAntes.exe
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\CarneAntes\CarneAntes\obj\Debug\CarneAntes.pdb

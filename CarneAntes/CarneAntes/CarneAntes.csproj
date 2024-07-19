@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion.cs" />
     <Compile Include="DATA\DataClasse.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
