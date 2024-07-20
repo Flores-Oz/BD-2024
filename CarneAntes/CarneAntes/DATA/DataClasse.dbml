@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parcial2_Progra5" Class="DataClasseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=GNARO\SQLEXPRESS;Initial Catalog=Parcial2_Progra5;Persist Security Info=True;User ID=sa" SettingsObjectName="CarneAntes.Properties.Settings" SettingsPropertyName="Parcial2_Progra5ConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.alumno" Member="alumnos">
     <Type Name="alumno">
       <Column Name="Carne" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -17,6 +16,7 @@
       <Column Name="numero_actualizacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="id_encargado" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="alumno_inscripcion" Member="inscripcion" ThisKey="Carne" OtherKey="Carne" Type="inscripcion" />
+      <Association Name="municipio_alumno" Member="municipio" ThisKey="id_muni" OtherKey="id_municipio" Type="municipio" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.detalle_pensum" Member="detalle_pensum">
@@ -153,6 +153,22 @@
       <Column Name="fecha_final" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
       <Column Name="estado_unidad" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="unidad_nota" Member="nota" ThisKey="id_unidad" OtherKey="id_unidad" Type="nota" />
+    </Type>
+  </Table>
+  <Table Name="dbo.departamento" Member="departamentos">
+    <Type Name="departamento">
+      <Column Name="id_departamento" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_departamento" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="departamento_municipio" Member="municipios" ThisKey="id_departamento" OtherKey="id_departamento" Type="municipio" />
+    </Type>
+  </Table>
+  <Table Name="dbo.municipio" Member="municipios">
+    <Type Name="municipio">
+      <Column Name="id_municipio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_municipio" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_departamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="municipio_alumno" Member="alumnos" ThisKey="id_municipio" OtherKey="id_muni" Type="alumno" />
+      <Association Name="departamento_municipio" Member="departamento" ThisKey="id_departamento" OtherKey="id_departamento" Type="departamento" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

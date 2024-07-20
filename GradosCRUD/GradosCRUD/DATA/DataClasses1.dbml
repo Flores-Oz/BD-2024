@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parcial2_Progra5" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.grado" Member="grados">
+    <Type Name="grado">
+      <Column Name="ID_grado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom_grado" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_grado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="grado_pensum" Member="pensums" ThisKey="ID_grado" OtherKey="id_grado" Type="pensum" />
+    </Type>
+  </Table>
+  <Table Name="dbo.detalle_pensum" Member="detalle_pensums">
+    <Type Name="detalle_pensum">
+      <Column Name="ID_Det_Pen" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Curso" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Pensum" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="pensum_detalle_pensum" Member="pensum" ThisKey="ID_Pensum" OtherKey="ID_Pensum" Type="pensum" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pensum" Member="pensums">
+    <Type Name="pensum">
+      <Column Name="ID_Pensum" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom_Pensum" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="id_grado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha_Inicio" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Estado_Pensum" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="id_carrera" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Association Name="pensum_detalle_pensum" Member="detalle_pensums" ThisKey="ID_Pensum" OtherKey="ID_Pensum" Type="detalle_pensum" />
+      <Association Name="grado_pensum" Member="grado" ThisKey="id_grado" OtherKey="ID_grado" Type="grado" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

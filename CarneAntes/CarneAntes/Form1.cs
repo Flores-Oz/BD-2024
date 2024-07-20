@@ -38,6 +38,15 @@ namespace CarneAntes
                               };
             idCiclo = cicloActivo.ToList()[0].Codigo;
             labelCiclo.Text = cicloActivo.ToList()[0].Ciclo.ToString();
+
+            var cargarDepartamentos = from depa in DB.departamentos
+                                      select new { 
+                                      Codigo = depa.id_departamento,
+                                      Departamento = depa.nombre_departamento
+                                      };
+            comboBoxDepartamento.DataSource = cargarDepartamentos;
+            comboBoxDepartamento.ValueMember = "Codigo";
+            comboBoxDepartamento.DisplayMember = "Departamento";
         }
         string idPensum = "";
         private void comboBoxCarrera_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,6 +78,26 @@ namespace CarneAntes
                     labelCarne.Text = (Convert.ToInt32(aux)+1).ToString();
                 }
             }catch (Exception) { }
+        }
+
+        private void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int codigoDepa = comboBoxDepartamento.SelectedIndex;
+                var cargarMuni = from muni in DB.municipios
+                                 where muni.id_departamento == codigoDepa
+                                          select new
+                                          {
+                                              Codigo = muni.id_municipio,
+                                              Municipio = muni.nombre_municipio
+                                          };
+                comboBoxMuni.DataSource = cargarMuni;
+                comboBoxMuni.ValueMember = "Codigo";
+                comboBoxMuni.DisplayMember = "Municipio";
+
+            }
+            catch (Exception) { }
         }
     }
 }

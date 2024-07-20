@@ -1,0 +1,10 @@
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\bin\Debug\GradosCRUD.exe.config
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\bin\Debug\GradosCRUD.exe
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\bin\Debug\GradosCRUD.pdb
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\obj\Debug\GradosCRUD.csproj.AssemblyReference.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\obj\Debug\GradosCRUD.Form1.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\obj\Debug\GradosCRUD.Properties.Resources.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\obj\Debug\GradosCRUD.csproj.GenerateResource.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\obj\Debug\GradosCRUD.csproj.CoreCompileInputs.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\obj\Debug\GradosCRUD.exe
+C:\Users\Ozzca\OneDrive\Documentos\BD\GradosCRUD\GradosCRUD\obj\Debug\GradosCRUD.pdb
