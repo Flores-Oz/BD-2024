@@ -30,7 +30,7 @@
                 <h2>Datos Cliente</h2>
                 <div class="form-group row">
                     <div class="col-md-4 mb-4">
-                        <asp:Label ID="Label1" runat="server" Text="NIT:" CssClass="form-label"></asp:Label>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">NIT</a>
                         <asp:TextBox ID="TextBoxNIT" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -66,8 +66,47 @@
                     </div>
                 </div>
                 <div class="b-example-divider"></div>
-
+                <!-- //////GRIDVIEW///// -->
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CssClass="table table-striped" OnRowCommand="GridView1_RowCommand">
+                </asp:GridView>
             </div>
+        </div>
+        <!-- //////MODALS///// -->
+        <!-- //////Clientes///// -->
+        <div class="modal fade modal-xl" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Clientes</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Aquí empieza el GridView -->
+                        <div class="container">
+                            <asp:GridView ID="GridViewClientes" runat="server" CssClass="table table-striped table-bordered">
+                                <Columns>
+                                    <asp:BoundField DataField="nit" HeaderText="NIT" />
+                                    <asp:BoundField DataField="nombres" HeaderText="Nombres" />
+                                    <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
+                                    <asp:BoundField DataField="direccion" HeaderText="Dirección" />
+                                    <asp:BoundField DataField="fechaNac" HeaderText="Fecha de Nacimiento" DataFormatString="{0:dd/MM/yyyy}" />
+                                    <asp:TemplateField HeaderText="Acciones">
+                                        <ItemTemplate>
+                                            <asp:Button ID="btnSeleccionar" runat="server" Text="Seleccionar" CssClass="btn btn-primary btn-sm" CommandArgument='<%# Eval("nit") %>' CommandName="Seleccionar" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+                        <!-- Aquí termina el GridView -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </form>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

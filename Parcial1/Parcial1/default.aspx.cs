@@ -11,7 +11,26 @@ namespace Parcial1
     {
         DB.DataClasses1DataContext milinq = new DB.DataClasses1DataContext(Conexion.CADENA);
 
+        public void CargarClientes()
+        {
+            using (var milinq = new DB.DataClasses1DataContext(Conexion.CADENA))
+            {
+                var clientes = from cliente in milinq.v_ListadodeClientes
+                               select cliente;
+
+                GridViewClientes.DataSource = clientes.ToList();
+                GridViewClientes.DataBind(); 
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                CargarClientes();
+            }
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
         }
