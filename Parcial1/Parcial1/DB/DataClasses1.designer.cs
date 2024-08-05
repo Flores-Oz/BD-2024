@@ -86,14 +86,6 @@ namespace Parcial1.DB
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Bitacora_Cliente> Bitacora_Clientes
-		{
-			get
-			{
-				return this.GetTable<Bitacora_Cliente>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Cliente> Clientes
 		{
 			get
@@ -181,229 +173,12 @@ namespace Parcial1.DB
 				return this.GetTable<v_ListadodeClientes>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Bitacora_Cliente")]
-	public partial class Bitacora_Cliente
-	{
 		
-		private int _id;
-		
-		private string _nit_cliente;
-		
-		private string _nombre_cliente;
-		
-		private string _apellido_cliente;
-		
-		private string _direccion_cliente;
-		
-		private string _telefono_cliente;
-		
-		private System.DateTime _fechanac_cliente;
-		
-		private bool _estado_cliente;
-		
-		private int _codigo_municipio;
-		
-		private string _nombre_municipio;
-		
-		private System.DateTime _fecha_evento;
-		
-		private string _tipo_evento;
-		
-		public Bitacora_Cliente()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int id
+		public System.Data.Linq.Table<v_ListadoProductos> v_ListadoProductos
 		{
 			get
 			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this._id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nit_cliente", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string nit_cliente
-		{
-			get
-			{
-				return this._nit_cliente;
-			}
-			set
-			{
-				if ((this._nit_cliente != value))
-				{
-					this._nit_cliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_cliente", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre_cliente
-		{
-			get
-			{
-				return this._nombre_cliente;
-			}
-			set
-			{
-				if ((this._nombre_cliente != value))
-				{
-					this._nombre_cliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido_cliente", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string apellido_cliente
-		{
-			get
-			{
-				return this._apellido_cliente;
-			}
-			set
-			{
-				if ((this._apellido_cliente != value))
-				{
-					this._apellido_cliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_direccion_cliente", DbType="NVarChar(300) NOT NULL", CanBeNull=false)]
-		public string direccion_cliente
-		{
-			get
-			{
-				return this._direccion_cliente;
-			}
-			set
-			{
-				if ((this._direccion_cliente != value))
-				{
-					this._direccion_cliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono_cliente", DbType="NVarChar(12) NOT NULL", CanBeNull=false)]
-		public string telefono_cliente
-		{
-			get
-			{
-				return this._telefono_cliente;
-			}
-			set
-			{
-				if ((this._telefono_cliente != value))
-				{
-					this._telefono_cliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechanac_cliente", DbType="SmallDateTime NOT NULL")]
-		public System.DateTime fechanac_cliente
-		{
-			get
-			{
-				return this._fechanac_cliente;
-			}
-			set
-			{
-				if ((this._fechanac_cliente != value))
-				{
-					this._fechanac_cliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_cliente", DbType="Bit NOT NULL")]
-		public bool estado_cliente
-		{
-			get
-			{
-				return this._estado_cliente;
-			}
-			set
-			{
-				if ((this._estado_cliente != value))
-				{
-					this._estado_cliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_municipio", DbType="Int NOT NULL")]
-		public int codigo_municipio
-		{
-			get
-			{
-				return this._codigo_municipio;
-			}
-			set
-			{
-				if ((this._codigo_municipio != value))
-				{
-					this._codigo_municipio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_municipio", DbType="NVarChar(100)")]
-		public string nombre_municipio
-		{
-			get
-			{
-				return this._nombre_municipio;
-			}
-			set
-			{
-				if ((this._nombre_municipio != value))
-				{
-					this._nombre_municipio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_evento", DbType="SmallDateTime NOT NULL")]
-		public System.DateTime fecha_evento
-		{
-			get
-			{
-				return this._fecha_evento;
-			}
-			set
-			{
-				if ((this._fecha_evento != value))
-				{
-					this._fecha_evento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo_evento", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
-		public string tipo_evento
-		{
-			get
-			{
-				return this._tipo_evento;
-			}
-			set
-			{
-				if ((this._tipo_evento != value))
-				{
-					this._tipo_evento = value;
-				}
+				return this.GetTable<v_ListadoProductos>();
 			}
 		}
 	}
@@ -2679,6 +2454,105 @@ namespace Parcial1.DB
 				if ((this._FechaNac != value))
 				{
 					this._FechaNac = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_ListadoProductos")]
+	public partial class v_ListadoProductos
+	{
+		
+		private int _codigo_producto;
+		
+		private string _nombre_producto;
+		
+		private decimal _precio_costo;
+		
+		private int _existencia_producto;
+		
+		private string _nombre_marca;
+		
+		public v_ListadoProductos()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_producto", DbType="Int NOT NULL")]
+		public int codigo_producto
+		{
+			get
+			{
+				return this._codigo_producto;
+			}
+			set
+			{
+				if ((this._codigo_producto != value))
+				{
+					this._codigo_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_producto", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombre_producto
+		{
+			get
+			{
+				return this._nombre_producto;
+			}
+			set
+			{
+				if ((this._nombre_producto != value))
+				{
+					this._nombre_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio_costo", DbType="Money NOT NULL")]
+		public decimal precio_costo
+		{
+			get
+			{
+				return this._precio_costo;
+			}
+			set
+			{
+				if ((this._precio_costo != value))
+				{
+					this._precio_costo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_existencia_producto", DbType="Int NOT NULL")]
+		public int existencia_producto
+		{
+			get
+			{
+				return this._existencia_producto;
+			}
+			set
+			{
+				if ((this._existencia_producto != value))
+				{
+					this._existencia_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_marca", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombre_marca
+		{
+			get
+			{
+				return this._nombre_marca;
+			}
+			set
+			{
+				if ((this._nombre_marca != value))
+				{
+					this._nombre_marca = value;
 				}
 			}
 		}
