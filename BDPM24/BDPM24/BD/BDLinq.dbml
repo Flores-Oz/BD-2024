@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parcial2_Progra5" Class="BDLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-Q19E2HP;Initial Catalog=Parcial2_Progra5;User ID=sa;Encrypt=False" SettingsObjectName="BDPM24.Properties.Settings" SettingsPropertyName="Parcial2_Progra5ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.grado" Member="grado">
+    <Type Name="grado">
+      <Column Name="ID_grado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom_grado" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_grado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="grado_pensum" Member="pensum" ThisKey="ID_grado" OtherKey="id_grado" Type="pensum" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pensum" Member="pensum">
+    <Type Name="pensum">
+      <Column Name="ID_Pensum" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom_Pensum" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="id_grado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha_Inicio" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Estado_Pensum" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="id_carrera" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Association Name="pensum_detalle_pensum" Member="detalle_pensum" ThisKey="ID_Pensum" OtherKey="ID_Pensum" Type="detalle_pensum" />
+      <Association Name="pensum_inscripcion" Member="inscripcion" ThisKey="ID_Pensum" OtherKey="ID_Pensum" Type="inscripcion" />
+      <Association Name="grado_pensum" Member="grado" ThisKey="id_grado" OtherKey="ID_grado" Type="grado" IsForeignKey="true" />
+      <Association Name="carrera_pensum" Member="carrera" ThisKey="id_carrera" OtherKey="id_carrera" Type="carrera" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.curso" Member="curso">
+    <Type Name="curso">
+      <Column Name="ID_Curso" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom_Curso" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_curso" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="curso_detalle_pensum" Member="detalle_pensum" ThisKey="ID_Curso" OtherKey="ID_Curso" Type="detalle_pensum" />
+      <Association Name="curso_asigna_cursosalum" Member="asigna_cursosalum" ThisKey="ID_Curso" OtherKey="ID_Curso" Type="asigna_cursosalum" />
+    </Type>
+  </Table>
+  <Table Name="dbo.detalle_pensum" Member="detalle_pensum">
+    <Type Name="detalle_pensum">
+      <Column Name="ID_Det_Pen" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Curso" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Pensum" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="curso_detalle_pensum" Member="curso" ThisKey="ID_Curso" OtherKey="ID_Curso" Type="curso" IsForeignKey="true" />
+      <Association Name="pensum_detalle_pensum" Member="pensum" ThisKey="ID_Pensum" OtherKey="ID_Pensum" Type="pensum" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.carrera" Member="carrera">
+    <Type Name="carrera">
+      <Column Name="id_carrera" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_carrera" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_carrera" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="campo_borrar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="carrera_pensum" Member="pensum" ThisKey="id_carrera" OtherKey="id_carrera" Type="pensum" />
+      <Association Name="carrera_Pagos_Grado" Member="Pagos_Grado" ThisKey="id_carrera" OtherKey="id_carrera" Type="Pagos_Grado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ciclo" Member="ciclo">
+    <Type Name="ciclo">
+      <Column Name="id_ciclo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_ciclo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_ciclo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ciclo_inscripcion" Member="inscripcion" ThisKey="id_ciclo" OtherKey="id_ciclo" Type="inscripcion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.alum_usua" Member="alum_usua">
+    <Type Name="alum_usua">
+      <Column Name="id_usu_alu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha_creacion" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Carne" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="id_usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="alumno_alum_usua" Member="alumno" ThisKey="Carne" OtherKey="Carne" Type="alumno" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.asigna_cursosalum" Member="asigna_cursosalum">
+    <Type Name="asigna_cursosalum">
+      <Column Name="id_alum_curso" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_Inscripcion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Curso" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SumaTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Promedio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Resultado" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Association Name="asigna_cursosalum_nota" Member="nota" ThisKey="id_alum_curso" OtherKey="id_alum_curso" Type="nota" />
+      <Association Name="curso_asigna_cursosalum" Member="curso" ThisKey="ID_Curso" OtherKey="ID_Curso" Type="curso" IsForeignKey="true" />
+      <Association Name="inscripcion_asigna_cursosalum" Member="inscripcion" ThisKey="ID_Inscripcion" OtherKey="ID_Inscripcion" Type="inscripcion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nota" Member="nota">
+    <Type Name="nota">
+      <Column Name="ID_Nota" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="notafinal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_unidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CursoProf" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="argumento" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="total" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_alum_curso" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="literal" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_usuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_ingreso" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="tipo_nota" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="asigna_cursosalum_nota" Member="asigna_cursosalum" ThisKey="id_alum_curso" OtherKey="id_alum_curso" Type="asigna_cursosalum" IsForeignKey="true" />
+      <Association Name="unidad_nota" Member="unidad" ThisKey="id_unidad" OtherKey="id_unidad" Type="unidad" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.departamento" Member="departamento">
+    <Type Name="departamento">
+      <Column Name="id_departamento" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_departamento" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="departamento_municipio" Member="municipio" ThisKey="id_departamento" OtherKey="id_departamento" Type="municipio" />
+    </Type>
+  </Table>
+  <Table Name="dbo.municipio" Member="municipio">
+    <Type Name="municipio">
+      <Column Name="id_municipio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_municipio" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_departamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="municipio_alumno" Member="alumno" ThisKey="id_municipio" OtherKey="id_muni" Type="alumno" />
+      <Association Name="departamento_municipio" Member="departamento" ThisKey="id_departamento" OtherKey="id_departamento" Type="departamento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.alumno" Member="alumno">
+    <Type Name="alumno">
+      <Column Name="Carne" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="apellido1_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="apellido2_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nombre1_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nombre2_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Fechanac" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Sexo_Alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="estado_alumno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="direccion_alumno" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="celular_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="fechaingreso" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id_muni" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="numero_actualizacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_encargado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="alumno_alum_usua" Member="alum_usua" ThisKey="Carne" OtherKey="Carne" Type="alum_usua" />
+      <Association Name="alumno_inscripcion" Member="inscripcion" ThisKey="Carne" OtherKey="Carne" Type="inscripcion" />
+      <Association Name="municipio_alumno" Member="municipio" ThisKey="id_muni" OtherKey="id_municipio" Type="municipio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inscripcion" Member="inscripcion">
+    <Type Name="inscripcion">
+      <Column Name="ID_Inscripcion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Carne" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha_inicial" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha_Final" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Estado_Ins" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Pensum" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="id_jornada" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_ciclo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad_ins" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Cantidad_mensual" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Id_rubro_ins" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id_rubro_men" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Contador_mes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Total_pagar" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Fecha_Inscripcion" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="id_seccion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_usuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="inscripcion_asigna_cursosalum" Member="asigna_cursosalum" ThisKey="ID_Inscripcion" OtherKey="ID_Inscripcion" Type="asigna_cursosalum" />
+      <Association Name="alumno_inscripcion" Member="alumno" ThisKey="Carne" OtherKey="Carne" Type="alumno" IsForeignKey="true" />
+      <Association Name="ciclo_inscripcion" Member="ciclo" ThisKey="id_ciclo" OtherKey="id_ciclo" Type="ciclo" IsForeignKey="true" />
+      <Association Name="pensum_inscripcion" Member="pensum" ThisKey="ID_Pensum" OtherKey="ID_Pensum" Type="pensum" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pagos_Grado" Member="Pagos_Grado">
+    <Type Name="Pagos_Grado">
+      <Column Name="ID_Pagos_grado" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Valor_Inscripcion" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Valor_Mensualidad" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Estado_Couta" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="id_carrera" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="cantidad_pagos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="couta_compu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_jornada" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="carrera_Pagos_Grado" Member="carrera" ThisKey="id_carrera" OtherKey="id_carrera" Type="carrera" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.unidad" Member="unidad">
+    <Type Name="unidad">
+      <Column Name="id_unidad" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_unidad" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fecha_inicial" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="fecha_final" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="estado_unidad" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="unidad_nota" Member="nota" ThisKey="id_unidad" OtherKey="id_unidad" Type="nota" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ListadoCursosporCarrera" Method="ListadoCursosporCarrera">
+    <Parameter Name="codCar" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="estadoCarrera" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="ListadoCursosporCarreraResult">
+      <Column Name="Codigo" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Curso" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

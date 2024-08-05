@@ -1,0 +1,38 @@
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\bin\Debug\BDPM24.exe.config
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\bin\Debug\BDPM24.exe
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\bin\Debug\BDPM24.pdb
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.AssemblyReference.cache
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.Form1.resources
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.Properties.Resources.resources
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.GenerateResource.cache
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.CoreCompileInputs.cache
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.exe
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.pdb
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.frmCurso.resources
+C:\Users\Vlay\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.frmInscripción.resources
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\bin\Debug\BDPM24.exe.config
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\bin\Debug\BDPM24.exe
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\bin\Debug\BDPM24.pdb
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.AssemblyReference.cache
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.Form1.resources
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.frmCurso.resources
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.frmInscripción.resources
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.Properties.Resources.resources
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.GenerateResource.cache
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.CoreCompileInputs.cache
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.exe
+C:\Users\ALUMNO\source\repos\BDPM24\BDPM24\obj\Debug\BDPM24.pdb
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\bin\Debug\BDPM24.exe.config
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\bin\Debug\BDPM24.exe
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\bin\Debug\BDPM24.pdb
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.AssemblyReference.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.SuggestedBindingRedirects.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.Form1.resources
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.frmCurso.resources
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.frmInscripción.resources
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.Properties.Resources.resources
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.GenerateResource.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.exe
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\BDPM24\BDPM24\obj\Debug\BDPM24.pdb
