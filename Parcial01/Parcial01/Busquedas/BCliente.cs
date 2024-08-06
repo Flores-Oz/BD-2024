@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parcial01.Modulos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,12 @@ namespace Parcial01.Busquedas
 {
     public partial class BCliente : Form
     {
+       
         public BCliente()
         {
             InitializeComponent();
         }
+
         BD.DataClasses1DataContext milinq = new BD.DataClasses1DataContext(Conexion.CADENA);
 
         public void CargarClientes()
@@ -44,7 +47,21 @@ namespace Parcial01.Busquedas
 
         private void dataGridViewClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+        
+        }
 
+        private void BCliente_Load(object sender, EventArgs e)
+        {
+            CargarClientes();
+        }
+
+        private void dataGridViewClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                Venta.Nito = dataGridViewClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+            this.Close();
         }
     }
 }

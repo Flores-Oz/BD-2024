@@ -11,3 +11,4 @@ C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Parcial01\Parc
 C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Parcial01\Parcial01\bin\Debug\Parcial01.pdb
 C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Parcial01\Parcial01\obj\Debug\Parcial01.exe
 C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Parcial01\Parcial01\obj\Debug\Parcial01.pdb
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Parcial01\Parcial01\obj\Debug\Parcial01.Busquedas.BProducto.resources

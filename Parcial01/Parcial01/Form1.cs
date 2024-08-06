@@ -1,4 +1,5 @@
 ﻿using Parcial01.Busquedas;
+using Parcial01.Modulos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,13 @@ namespace Parcial01
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            BCliente a = new BCliente();
+            Venta a = new Venta();
             a.Show();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
         }
     }
 }
