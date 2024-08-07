@@ -33,6 +33,15 @@ namespace Parcial01.Modulos
             InitializeDataGridView();
         }
 
+        public void Limpiar()
+        {
+            textBoxNIT.Text = string.Empty;
+            textBoxNombres.Text = string.Empty;
+            textBoxApellido.Text = string.Empty;
+            textBoxDireccion.Text = string.Empty;
+            textBoxTelefono.Text = string.Empty;
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -40,12 +49,11 @@ namespace Parcial01.Modulos
 
         private void buttonVender_Click(object sender, EventArgs e)
         {
+            CalcularSubTotal();
+            CalcularTotalProductos();
             if (double.TryParse(textBoxDescuento.Text, out double descuento) && Double.TryParse(labelSubTotal.Text, out double subTotal))
             {
-                // Calcular el total
                 double total = descuento * subTotal;
-
-                // Asignar el total al label
                 labeTotal.Text = total.ToString();
             }
             using (var transa = new TransactionScope())
@@ -57,7 +65,7 @@ namespace Parcial01.Modulos
                         // Insertar en Enca_Compra
                         BD.Enca_Compra nuevaEncaCompra = new BD.Enca_Compra
                         {
-                            codigo_compra = Convert.ToInt32(textBoxCodCompra.Text),
+                            //codigo_compra = Convert.ToInt32(textBoxCodCompra.Text),
                             fecha_compra = Convert.ToDateTime(dateCompra.Text),
                             total_compra = Convert.ToInt32(labeTotal.Text),
                             total_producto = Convert.ToInt32(labeLTotalProductos.Text),
@@ -65,7 +73,7 @@ namespace Parcial01.Modulos
                         };
 
                         milinq.Enca_Compra.InsertOnSubmit(nuevaEncaCompra);
-                        milinq.SubmitChanges(); // Guardar para obtener el Id_Compra generado
+                        milinq.SubmitChanges();
 
                         // Insertar en Detalle_Compra y actualizar Producto
                         foreach (var prod in productosSeleccionados)
@@ -87,8 +95,6 @@ namespace Parcial01.Modulos
                             if (producto != null)
                             {
                                 producto.existencia_producto -= prod.Cantidad;
-                                // milinq.Producto.Attach(producto);
-                                // milinq.Refresh(RefreshMode.KeepCurrentValues, producto);
                             }
                         }
 
@@ -98,6 +104,9 @@ namespace Parcial01.Modulos
                         // Completar la transacción
                         transa.Complete();
                         MessageBox.Show("Compra registrada exitosamente.");
+                        productosSeleccionados.Clear();
+                        dataGridViewLista.DataSource = null;
+                        dataGridViewLista.Rows.Clear();
                     }
                 }
                 catch (Exception ex)
@@ -120,7 +129,6 @@ namespace Parcial01.Modulos
             string nit = textBoxNIT.Text.Trim();
             if (string.IsNullOrEmpty(nit))
             {
-                // Limpiar los campos si el NIT está vacío
                 textBoxNombres.Text = string.Empty;
                 textBoxApellido.Text = string.Empty;
                 textBoxDireccion.Text = string.Empty;
@@ -136,7 +144,6 @@ namespace Parcial01.Modulos
 
                     if (cliente != null)
                     {
-                        // Llenar los TextBox con la información del cliente encontrado
                         textBoxNombres.Text = cliente.nombre_cliente;
                         textBoxApellido.Text = cliente.apellido_cliente;
                         textBoxDireccion.Text = cliente.direccion_cliente;
@@ -187,14 +194,12 @@ namespace Parcial01.Modulos
                             PrecioCosto = productoSeleccionado.precio_costo,
                             NombreMarca = productoSeleccionado.nombre_marca,
                             Cantidad = 1, // Valor inicial
-                            Total = productoSeleccionado.precio_costo // Precio por la cantidad inicial
+                            Total = productoSeleccionado.precio_costo
                         };
 
                         productosSeleccionados.Add(nuevoProducto);
-
-                        // Actualizar el DataGridView
-                        dataGridViewLista.DataSource = null; // Limpiar el DataSource actual
-                        dataGridViewLista.DataSource = productosSeleccionados; // Asignar la lista actualizada
+                        dataGridViewLista.DataSource = null;
+                        dataGridViewLista.DataSource = productosSeleccionados;
                     }
                 }
             }
@@ -208,7 +213,7 @@ namespace Parcial01.Modulos
             }
             catch (Exception)
             {
-                // Manejo de excepciones (puedes añadir mensajes de error o registro de logs)
+
             }
         }
 
@@ -216,17 +221,13 @@ namespace Parcial01.Modulos
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewLista.Columns["Cantidad"].Index)
             {
-                // Asegúrate de que la celda editada es la columna de cantidad
                 var row = dataGridViewLista.Rows[e.RowIndex];
                 if (int.TryParse(row.Cells["Cantidad"].Value.ToString(), out int cantidad))
                 {
-                    // Obtener el producto seleccionado
                     var producto = productosSeleccionados[e.RowIndex];
                     producto.Cantidad = cantidad;
                     producto.Total = cantidad * producto.PrecioCosto;
-
-                    // Actualizar el DataGridView
-                    dataGridViewLista.Refresh(); // Actualiza la visualización del DataGridView
+                    dataGridViewLista.Refresh();
                 }
             }
             if (e.ColumnIndex == dataGridViewLista.Columns["Total"].Index)
@@ -247,7 +248,7 @@ namespace Parcial01.Modulos
             }
             else
             {
-               // MessageBox.Show("La columna 'Cantidad' no existe en el DataGridView.");
+                // MessageBox.Show("La columna 'Cantidad' no existe en el DataGridView.");
             }
         }
 
@@ -290,7 +291,7 @@ namespace Parcial01.Modulos
         }
         private void button2_Click(object sender, EventArgs e)
         {
-           CalcularSubTotal();
+            CalcularSubTotal();
             CalcularTotalProductos();
         }
 

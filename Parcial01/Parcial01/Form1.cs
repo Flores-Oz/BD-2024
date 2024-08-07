@@ -17,17 +17,44 @@ namespace Parcial01
         public Form1()
         {
             InitializeComponent();
+              IsMdiContainer = true;
+               this.FormClosed += new FormClosedEventHandler(Inicio_FormClosed);
+        }
+
+        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit(); 
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Compra a = new Compra();
-            a.Show();
+
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             
+        }
+
+        private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Compra a = new Compra();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BCliente a = new BCliente();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BProducto a = new BProducto();
+            a.MdiParent = this;
+            a.Show();
         }
     }
 }
