@@ -21,7 +21,7 @@ namespace Parcial01
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Venta a = new Venta();
+            Compra a = new Compra();
             a.Show();
         }
 

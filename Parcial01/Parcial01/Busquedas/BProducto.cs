@@ -53,7 +53,7 @@ namespace Parcial01.Busquedas
         {
             if (e.RowIndex != -1)
             {
-                Venta.Pro = dataGridViewProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Compra.Pro = dataGridViewProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
             }
             this.Close();
         }

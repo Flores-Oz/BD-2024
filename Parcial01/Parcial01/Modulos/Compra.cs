@@ -8,11 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Transactions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Parcial01.Modulos
 {
-    public partial class Venta : Form
+    public partial class Compra : Form
     {
         public static string Nito;
         public static string Pro;
@@ -26,7 +27,7 @@ namespace Parcial01.Modulos
             public decimal Total { get; set; }
         }
         private static List<ProductoSeleccionado> productosSeleccionados = new List<ProductoSeleccionado>();
-        public Venta()
+        public Compra()
         {
             InitializeComponent();
             InitializeDataGridView();
@@ -39,7 +40,72 @@ namespace Parcial01.Modulos
 
         private void buttonVender_Click(object sender, EventArgs e)
         {
-            labeTotal.Text = Convert.ToString(Convert.ToInt32(textBoxDescuento.Text) * Convert.ToInt32(labelSubTotal.Text));
+            if (double.TryParse(textBoxDescuento.Text, out double descuento) && Double.TryParse(labelSubTotal.Text, out double subTotal))
+            {
+                // Calcular el total
+                double total = descuento * subTotal;
+
+                // Asignar el total al label
+                labeTotal.Text = total.ToString();
+            }
+            using (var transa = new TransactionScope())
+            {
+                try
+                {
+                    using (var milinq = new BD.DataClasses1DataContext(Conexion.CADENA))
+                    {
+                        // Insertar en Enca_Compra
+                        BD.Enca_Compra nuevaEncaCompra = new BD.Enca_Compra
+                        {
+                            codigo_compra = Convert.ToInt32(textBoxCodCompra.Text),
+                            fecha_compra = Convert.ToDateTime(dateCompra.Text),
+                            total_compra = Convert.ToInt32(labeTotal.Text),
+                            total_producto = Convert.ToInt32(labeLTotalProductos.Text),
+                            dpi_cliente = textBoxNIT.Text
+                        };
+
+                        milinq.Enca_Compra.InsertOnSubmit(nuevaEncaCompra);
+                        milinq.SubmitChanges(); // Guardar para obtener el Id_Compra generado
+
+                        // Insertar en Detalle_Compra y actualizar Producto
+                        foreach (var prod in productosSeleccionados)
+                        {
+                            // Insertar detalle de compra
+                            BD.Detalle_Compra nuevoDetalleCompra = new BD.Detalle_Compra
+                            {
+                                codigo_compra = nuevaEncaCompra.codigo_compra,
+                                codigo_producto = Convert.ToInt32(prod.CodigoProducto),
+                                cantidad = prod.Cantidad,
+                                precio_costo = prod.PrecioCosto,
+                                subtotal = Convert.ToInt32(labelSubTotal.Text)
+                            };
+
+                            milinq.Detalle_Compra.InsertOnSubmit(nuevoDetalleCompra);
+
+                            // Actualizar stock del producto
+                            var producto = milinq.Producto.SingleOrDefault(p => p.codigo_producto == Convert.ToInt32(prod.CodigoProducto));
+                            if (producto != null)
+                            {
+                                producto.existencia_producto += prod.Cantidad;
+                                // milinq.Producto.Attach(producto);
+                                // milinq.Refresh(RefreshMode.KeepCurrentValues, producto);
+                            }
+                        }
+
+                        // Guardar todos los cambios en la base de datos
+                        milinq.SubmitChanges();
+
+                        // Completar la transacción
+                        transa.Complete();
+                        MessageBox.Show("Compra registrada exitosamente.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de errores y reversión de la transacción
+                    MessageBox.Show("Ocurrió un error al registrar la compra: " + ex.Message);
+                }
+            }
 
         }
         private bool isUpdatingText = false; // Bandera para evitar actualizaciones innecesarias
@@ -167,6 +233,10 @@ namespace Parcial01.Modulos
             {
                 CalcularSubTotal();
             }
+            if (e.ColumnIndex == dataGridViewLista.Columns["Cantidad"].Index)
+            {
+                CalcularTotalProductos();
+            }
         }
         private void InitializeDataGridView()
         {
@@ -203,14 +273,31 @@ namespace Parcial01.Modulos
             }
             labelSubTotal.Text = totalGeneral.ToString();
         }
+        public void CalcularTotalProductos()
+        {
+            decimal totalGeneral = 0m;
+            foreach (DataGridViewRow row in dataGridViewLista.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    if (decimal.TryParse(row.Cells["Cantidad"].Value?.ToString(), out decimal valorTotal))
+                    {
+                        totalGeneral += valorTotal;
+                    }
+                }
+            }
+            labeLTotalProductos.Text = totalGeneral.ToString();
+        }
         private void button2_Click(object sender, EventArgs e)
         {
            CalcularSubTotal();
+            CalcularTotalProductos();
         }
 
         private void dataGridViewLista_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             CalcularSubTotal();
+            CalcularTotalProductos();
         }
     }
 }

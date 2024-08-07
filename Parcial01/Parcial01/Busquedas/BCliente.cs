@@ -59,7 +59,7 @@ namespace Parcial01.Busquedas
         {
             if (e.RowIndex != -1)
             {
-                Venta.Nito = dataGridViewClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Compra.Nito = dataGridViewClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
             }
             this.Close();
         }
