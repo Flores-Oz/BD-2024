@@ -77,7 +77,7 @@ namespace Parcial01.Modulos
                                 codigo_producto = Convert.ToInt32(prod.CodigoProducto),
                                 cantidad = prod.Cantidad,
                                 precio_costo = prod.PrecioCosto,
-                                subtotal = Convert.ToInt32(labelSubTotal.Text)
+                                subtotal = prod.Cantidad * prod.PrecioCosto
                             };
 
                             milinq.Detalle_Compra.InsertOnSubmit(nuevoDetalleCompra);
@@ -86,7 +86,7 @@ namespace Parcial01.Modulos
                             var producto = milinq.Producto.SingleOrDefault(p => p.codigo_producto == Convert.ToInt32(prod.CodigoProducto));
                             if (producto != null)
                             {
-                                producto.existencia_producto += prod.Cantidad;
+                                producto.existencia_producto -= prod.Cantidad;
                                 // milinq.Producto.Attach(producto);
                                 // milinq.Refresh(RefreshMode.KeepCurrentValues, producto);
                             }

@@ -28,8 +28,8 @@
       <Column Name="subtotal" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
       <Column Name="codigo_compra" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="codigo_producto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Enca_Compra_Detalle_Compra" Member="Enca_Compra" ThisKey="codigo_compra" OtherKey="codigo_compra" Type="Enca_Compra" IsForeignKey="true" />
       <Association Name="Producto_Detalle_Compra" Member="Producto" ThisKey="codigo_producto" OtherKey="codigo_producto" Type="Producto" IsForeignKey="true" />
+      <Association Name="Enca_Compra_Detalle_Compra" Member="Enca_Compra" ThisKey="codigo_compra" OtherKey="codigo_compra" Type="Enca_Compra" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Detalle_Venta" Member="Detalle_Venta">
@@ -43,17 +43,6 @@
       <Column Name="codigo_venta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Enca_Venta_Detalle_Venta" Member="Enca_Venta" ThisKey="codigo_venta" OtherKey="codigo_venta" Type="Enca_Venta" IsForeignKey="true" />
       <Association Name="Producto_Detalle_Venta" Member="Producto" ThisKey="codigo_producto" OtherKey="codigo_producto" Type="Producto" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Enca_Compra" Member="Enca_Compra">
-    <Type Name="Enca_Compra">
-      <Column Name="codigo_compra" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fecha_compra" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
-      <Column Name="total_compra" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="total_producto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="dpi_cliente" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="Enca_Compra_Detalle_Compra" Member="Detalle_Compra" ThisKey="codigo_compra" OtherKey="codigo_compra" Type="Detalle_Compra" />
-      <Association Name="Cliente_Enca_Compra" Member="Cliente" ThisKey="dpi_cliente" OtherKey="nit_cliente" Type="Cliente" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Enca_Venta" Member="Enca_Venta">
@@ -102,6 +91,17 @@
       <Column Name="precio_costo" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
       <Column Name="existencia_producto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="nombre_marca" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Enca_Compra" Member="Enca_Compra">
+    <Type Name="Enca_Compra">
+      <Column Name="codigo_compra" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha_compra" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="total_compra" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="total_producto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dpi_cliente" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Enca_Compra_Detalle_Compra" Member="Detalle_Compra" ThisKey="codigo_compra" OtherKey="codigo_compra" Type="Detalle_Compra" />
+      <Association Name="Cliente_Enca_Compra" Member="Cliente" ThisKey="dpi_cliente" OtherKey="nit_cliente" Type="Cliente" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

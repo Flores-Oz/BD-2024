@@ -42,9 +42,6 @@ namespace Parcial01.BD
     partial void InsertDetalle_Venta(Detalle_Venta instance);
     partial void UpdateDetalle_Venta(Detalle_Venta instance);
     partial void DeleteDetalle_Venta(Detalle_Venta instance);
-    partial void InsertEnca_Compra(Enca_Compra instance);
-    partial void UpdateEnca_Compra(Enca_Compra instance);
-    partial void DeleteEnca_Compra(Enca_Compra instance);
     partial void InsertEnca_Venta(Enca_Venta instance);
     partial void UpdateEnca_Venta(Enca_Venta instance);
     partial void DeleteEnca_Venta(Enca_Venta instance);
@@ -54,6 +51,9 @@ namespace Parcial01.BD
     partial void InsertProducto(Producto instance);
     partial void UpdateProducto(Producto instance);
     partial void DeleteProducto(Producto instance);
+    partial void InsertEnca_Compra(Enca_Compra instance);
+    partial void UpdateEnca_Compra(Enca_Compra instance);
+    partial void DeleteEnca_Compra(Enca_Compra instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -118,14 +118,6 @@ namespace Parcial01.BD
 			}
 		}
 		
-		public System.Data.Linq.Table<Enca_Compra> Enca_Compra
-		{
-			get
-			{
-				return this.GetTable<Enca_Compra>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Enca_Venta> Enca_Venta
 		{
 			get
@@ -163,6 +155,14 @@ namespace Parcial01.BD
 			get
 			{
 				return this.GetTable<v_ListadoProductos>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Enca_Compra> Enca_Compra
+		{
+			get
+			{
+				return this.GetTable<Enca_Compra>();
 			}
 		}
 	}
@@ -531,9 +531,9 @@ namespace Parcial01.BD
 		
 		private int _codigo_producto;
 		
-		private EntityRef<Enca_Compra> _Enca_Compra;
-		
 		private EntityRef<Producto> _Producto;
+		
+		private EntityRef<Enca_Compra> _Enca_Compra;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -557,8 +557,8 @@ namespace Parcial01.BD
 		
 		public Detalle_Compra()
 		{
-			this._Enca_Compra = default(EntityRef<Enca_Compra>);
 			this._Producto = default(EntityRef<Producto>);
+			this._Enca_Compra = default(EntityRef<Enca_Compra>);
 			OnCreated();
 		}
 		
@@ -710,40 +710,6 @@ namespace Parcial01.BD
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Enca_Compra_Detalle_Compra", Storage="_Enca_Compra", ThisKey="codigo_compra", OtherKey="codigo_compra", IsForeignKey=true)]
-		public Enca_Compra Enca_Compra
-		{
-			get
-			{
-				return this._Enca_Compra.Entity;
-			}
-			set
-			{
-				Enca_Compra previousValue = this._Enca_Compra.Entity;
-				if (((previousValue != value) 
-							|| (this._Enca_Compra.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Enca_Compra.Entity = null;
-						previousValue.Detalle_Compra.Remove(this);
-					}
-					this._Enca_Compra.Entity = value;
-					if ((value != null))
-					{
-						value.Detalle_Compra.Add(this);
-						this._codigo_compra = value.codigo_compra;
-					}
-					else
-					{
-						this._codigo_compra = default(int);
-					}
-					this.SendPropertyChanged("Enca_Compra");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_Detalle_Compra", Storage="_Producto", ThisKey="codigo_producto", OtherKey="codigo_producto", IsForeignKey=true)]
 		public Producto Producto
 		{
@@ -774,6 +740,40 @@ namespace Parcial01.BD
 						this._codigo_producto = default(int);
 					}
 					this.SendPropertyChanged("Producto");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Enca_Compra_Detalle_Compra", Storage="_Enca_Compra", ThisKey="codigo_compra", OtherKey="codigo_compra", IsForeignKey=true)]
+		public Enca_Compra Enca_Compra
+		{
+			get
+			{
+				return this._Enca_Compra.Entity;
+			}
+			set
+			{
+				Enca_Compra previousValue = this._Enca_Compra.Entity;
+				if (((previousValue != value) 
+							|| (this._Enca_Compra.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Enca_Compra.Entity = null;
+						previousValue.Detalle_Compra.Remove(this);
+					}
+					this._Enca_Compra.Entity = value;
+					if ((value != null))
+					{
+						value.Detalle_Compra.Add(this);
+						this._codigo_compra = value.codigo_compra;
+					}
+					else
+					{
+						this._codigo_compra = default(int);
+					}
+					this.SendPropertyChanged("Enca_Compra");
 				}
 			}
 		}
@@ -1084,233 +1084,6 @@ namespace Parcial01.BD
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Enca_Compra")]
-	public partial class Enca_Compra : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _codigo_compra;
-		
-		private System.DateTime _fecha_compra;
-		
-		private decimal _total_compra;
-		
-		private int _total_producto;
-		
-		private string _dpi_cliente;
-		
-		private EntitySet<Detalle_Compra> _Detalle_Compra;
-		
-		private EntityRef<Cliente> _Cliente;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Oncodigo_compraChanging(int value);
-    partial void Oncodigo_compraChanged();
-    partial void Onfecha_compraChanging(System.DateTime value);
-    partial void Onfecha_compraChanged();
-    partial void Ontotal_compraChanging(decimal value);
-    partial void Ontotal_compraChanged();
-    partial void Ontotal_productoChanging(int value);
-    partial void Ontotal_productoChanged();
-    partial void Ondpi_clienteChanging(string value);
-    partial void Ondpi_clienteChanged();
-    #endregion
-		
-		public Enca_Compra()
-		{
-			this._Detalle_Compra = new EntitySet<Detalle_Compra>(new Action<Detalle_Compra>(this.attach_Detalle_Compra), new Action<Detalle_Compra>(this.detach_Detalle_Compra));
-			this._Cliente = default(EntityRef<Cliente>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_compra", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int codigo_compra
-		{
-			get
-			{
-				return this._codigo_compra;
-			}
-			set
-			{
-				if ((this._codigo_compra != value))
-				{
-					this.Oncodigo_compraChanging(value);
-					this.SendPropertyChanging();
-					this._codigo_compra = value;
-					this.SendPropertyChanged("codigo_compra");
-					this.Oncodigo_compraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_compra", DbType="SmallDateTime NOT NULL")]
-		public System.DateTime fecha_compra
-		{
-			get
-			{
-				return this._fecha_compra;
-			}
-			set
-			{
-				if ((this._fecha_compra != value))
-				{
-					this.Onfecha_compraChanging(value);
-					this.SendPropertyChanging();
-					this._fecha_compra = value;
-					this.SendPropertyChanged("fecha_compra");
-					this.Onfecha_compraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_compra", DbType="Money NOT NULL")]
-		public decimal total_compra
-		{
-			get
-			{
-				return this._total_compra;
-			}
-			set
-			{
-				if ((this._total_compra != value))
-				{
-					this.Ontotal_compraChanging(value);
-					this.SendPropertyChanging();
-					this._total_compra = value;
-					this.SendPropertyChanged("total_compra");
-					this.Ontotal_compraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_producto", DbType="Int NOT NULL")]
-		public int total_producto
-		{
-			get
-			{
-				return this._total_producto;
-			}
-			set
-			{
-				if ((this._total_producto != value))
-				{
-					this.Ontotal_productoChanging(value);
-					this.SendPropertyChanging();
-					this._total_producto = value;
-					this.SendPropertyChanged("total_producto");
-					this.Ontotal_productoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dpi_cliente", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string dpi_cliente
-		{
-			get
-			{
-				return this._dpi_cliente;
-			}
-			set
-			{
-				if ((this._dpi_cliente != value))
-				{
-					if (this._Cliente.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Ondpi_clienteChanging(value);
-					this.SendPropertyChanging();
-					this._dpi_cliente = value;
-					this.SendPropertyChanged("dpi_cliente");
-					this.Ondpi_clienteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Enca_Compra_Detalle_Compra", Storage="_Detalle_Compra", ThisKey="codigo_compra", OtherKey="codigo_compra")]
-		public EntitySet<Detalle_Compra> Detalle_Compra
-		{
-			get
-			{
-				return this._Detalle_Compra;
-			}
-			set
-			{
-				this._Detalle_Compra.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Enca_Compra", Storage="_Cliente", ThisKey="dpi_cliente", OtherKey="nit_cliente", IsForeignKey=true)]
-		public Cliente Cliente
-		{
-			get
-			{
-				return this._Cliente.Entity;
-			}
-			set
-			{
-				Cliente previousValue = this._Cliente.Entity;
-				if (((previousValue != value) 
-							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Cliente.Entity = null;
-						previousValue.Enca_Compra.Remove(this);
-					}
-					this._Cliente.Entity = value;
-					if ((value != null))
-					{
-						value.Enca_Compra.Add(this);
-						this._dpi_cliente = value.nit_cliente;
-					}
-					else
-					{
-						this._dpi_cliente = default(string);
-					}
-					this.SendPropertyChanged("Cliente");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Detalle_Compra(Detalle_Compra entity)
-		{
-			this.SendPropertyChanging();
-			entity.Enca_Compra = this;
-		}
-		
-		private void detach_Detalle_Compra(Detalle_Compra entity)
-		{
-			this.SendPropertyChanging();
-			entity.Enca_Compra = null;
 		}
 	}
 	
@@ -2088,6 +1861,233 @@ namespace Parcial01.BD
 					this._nombre_marca = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Enca_Compra")]
+	public partial class Enca_Compra : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _codigo_compra;
+		
+		private System.DateTime _fecha_compra;
+		
+		private decimal _total_compra;
+		
+		private int _total_producto;
+		
+		private string _dpi_cliente;
+		
+		private EntitySet<Detalle_Compra> _Detalle_Compra;
+		
+		private EntityRef<Cliente> _Cliente;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Oncodigo_compraChanging(int value);
+    partial void Oncodigo_compraChanged();
+    partial void Onfecha_compraChanging(System.DateTime value);
+    partial void Onfecha_compraChanged();
+    partial void Ontotal_compraChanging(decimal value);
+    partial void Ontotal_compraChanged();
+    partial void Ontotal_productoChanging(int value);
+    partial void Ontotal_productoChanged();
+    partial void Ondpi_clienteChanging(string value);
+    partial void Ondpi_clienteChanged();
+    #endregion
+		
+		public Enca_Compra()
+		{
+			this._Detalle_Compra = new EntitySet<Detalle_Compra>(new Action<Detalle_Compra>(this.attach_Detalle_Compra), new Action<Detalle_Compra>(this.detach_Detalle_Compra));
+			this._Cliente = default(EntityRef<Cliente>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_compra", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int codigo_compra
+		{
+			get
+			{
+				return this._codigo_compra;
+			}
+			set
+			{
+				if ((this._codigo_compra != value))
+				{
+					this.Oncodigo_compraChanging(value);
+					this.SendPropertyChanging();
+					this._codigo_compra = value;
+					this.SendPropertyChanged("codigo_compra");
+					this.Oncodigo_compraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_compra", DbType="SmallDateTime NOT NULL")]
+		public System.DateTime fecha_compra
+		{
+			get
+			{
+				return this._fecha_compra;
+			}
+			set
+			{
+				if ((this._fecha_compra != value))
+				{
+					this.Onfecha_compraChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_compra = value;
+					this.SendPropertyChanged("fecha_compra");
+					this.Onfecha_compraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_compra", DbType="Money NOT NULL")]
+		public decimal total_compra
+		{
+			get
+			{
+				return this._total_compra;
+			}
+			set
+			{
+				if ((this._total_compra != value))
+				{
+					this.Ontotal_compraChanging(value);
+					this.SendPropertyChanging();
+					this._total_compra = value;
+					this.SendPropertyChanged("total_compra");
+					this.Ontotal_compraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_producto", DbType="Int NOT NULL")]
+		public int total_producto
+		{
+			get
+			{
+				return this._total_producto;
+			}
+			set
+			{
+				if ((this._total_producto != value))
+				{
+					this.Ontotal_productoChanging(value);
+					this.SendPropertyChanging();
+					this._total_producto = value;
+					this.SendPropertyChanged("total_producto");
+					this.Ontotal_productoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dpi_cliente", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string dpi_cliente
+		{
+			get
+			{
+				return this._dpi_cliente;
+			}
+			set
+			{
+				if ((this._dpi_cliente != value))
+				{
+					if (this._Cliente.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Ondpi_clienteChanging(value);
+					this.SendPropertyChanging();
+					this._dpi_cliente = value;
+					this.SendPropertyChanged("dpi_cliente");
+					this.Ondpi_clienteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Enca_Compra_Detalle_Compra", Storage="_Detalle_Compra", ThisKey="codigo_compra", OtherKey="codigo_compra")]
+		public EntitySet<Detalle_Compra> Detalle_Compra
+		{
+			get
+			{
+				return this._Detalle_Compra;
+			}
+			set
+			{
+				this._Detalle_Compra.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Enca_Compra", Storage="_Cliente", ThisKey="dpi_cliente", OtherKey="nit_cliente", IsForeignKey=true)]
+		public Cliente Cliente
+		{
+			get
+			{
+				return this._Cliente.Entity;
+			}
+			set
+			{
+				Cliente previousValue = this._Cliente.Entity;
+				if (((previousValue != value) 
+							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Cliente.Entity = null;
+						previousValue.Enca_Compra.Remove(this);
+					}
+					this._Cliente.Entity = value;
+					if ((value != null))
+					{
+						value.Enca_Compra.Add(this);
+						this._dpi_cliente = value.nit_cliente;
+					}
+					else
+					{
+						this._dpi_cliente = default(string);
+					}
+					this.SendPropertyChanged("Cliente");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Detalle_Compra(Detalle_Compra entity)
+		{
+			this.SendPropertyChanging();
+			entity.Enca_Compra = this;
+		}
+		
+		private void detach_Detalle_Compra(Detalle_Compra entity)
+		{
+			this.SendPropertyChanging();
+			entity.Enca_Compra = null;
 		}
 	}
 }
