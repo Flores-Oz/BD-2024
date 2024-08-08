@@ -43,6 +43,8 @@ namespace Parcial01.Modulos
             labelSubTotal.Text = "0";
             labeTotal.Text = "0";
             labeLTotalProductos.Text = "0";
+            textBoxDescuento.Text = "0";
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -56,7 +58,16 @@ namespace Parcial01.Modulos
             CalcularTotalProductos();
             if (double.TryParse(textBoxDescuento.Text, out double descuento) && Double.TryParse(labelSubTotal.Text, out double subTotal))
             {
-                
+                double total;
+                if (descuento == 0)
+                {
+                    total = subTotal; 
+                }
+                else
+                {
+                    total = subTotal - (subTotal * (descuento / 100)); 
+                }
+                labeTotal.Text = total.ToString("F2");
             }
             using (var transa = new TransactionScope())
             {
@@ -69,12 +80,12 @@ namespace Parcial01.Modulos
                         {
                             //codigo_compra = Convert.ToInt32(textBoxCodCompra.Text),
                             fecha_compra = Convert.ToDateTime(dateCompra.Text),
-                            total_compra = Convert.ToInt32(labeTotal.Text),
+                            total_compra = Convert.ToDecimal(labeTotal.Text),
                             total_producto = Convert.ToInt32(labeLTotalProductos.Text),
                             dpi_cliente = textBoxNIT.Text
                         };
 
-                        milinq.Enca_Compra.InsertOnSubmit(nuevaEncaCompra);
+                        milinq.Enca_Compras.InsertOnSubmit(nuevaEncaCompra);
                         milinq.SubmitChanges();
 
                         // Insertar en Detalle_Compra y actualizar Producto
@@ -90,20 +101,16 @@ namespace Parcial01.Modulos
                                 subtotal = prod.Cantidad * prod.PrecioCosto
                             };
 
-                            milinq.Detalle_Compra.InsertOnSubmit(nuevoDetalleCompra);
+                            milinq.Detalle_Compras.InsertOnSubmit(nuevoDetalleCompra);
 
                             // Actualizar stock del producto
-                            var producto = milinq.Producto.SingleOrDefault(p => p.codigo_producto == Convert.ToInt32(prod.CodigoProducto));
+                            var producto = milinq.Productos.SingleOrDefault(p => p.codigo_producto == Convert.ToInt32(prod.CodigoProducto));
                             if (producto != null)
                             {
                                 producto.existencia_producto -= prod.Cantidad;
                             }
                         }
-
-                        // Guardar todos los cambios en la base de datos
                         milinq.SubmitChanges();
-
-                        // Completar la transacción
                         transa.Complete();
                         MessageBox.Show("Compra registrada exitosamente.");
                         productosSeleccionados.Clear();
@@ -114,13 +121,12 @@ namespace Parcial01.Modulos
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de errores y reversión de la transacción
                     MessageBox.Show("Ocurrió un error al registrar la compra: " + ex.Message);
                 }
             }
 
         }
-        private bool isUpdatingText = false; // Bandera para evitar actualizaciones innecesarias
+        private bool isUpdatingText = false; 
 
         public void CargarTexto()
         {
@@ -141,7 +147,7 @@ namespace Parcial01.Modulos
             {
                 using (var milinq = new BD.DataClasses1DataContext(Conexion.CADENA))
                 {
-                    var cliente = milinq.Cliente
+                    var cliente = milinq.Clientes
                         .Where(c => c.nit_cliente.ToLower() == nit.ToLower())
                         .FirstOrDefault();
 
@@ -251,7 +257,7 @@ namespace Parcial01.Modulos
             }
             else
             {
-                // MessageBox.Show("La columna 'Cantidad' no existe en el DataGridView.");
+               
             }
         }
 
@@ -259,7 +265,7 @@ namespace Parcial01.Modulos
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewLista.Columns["Cantidad"].Index)
             {
-                dataGridViewLista_CellValueChanged(sender, e); // Llamar a CellValueChanged para actualizar el total
+                dataGridViewLista_CellValueChanged(sender, e);
             }
         }
         public void CalcularSubTotal()
@@ -294,8 +300,7 @@ namespace Parcial01.Modulos
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            CalcularSubTotal();
-            CalcularTotalProductos();
+          
         }
 
         private void dataGridViewLista_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

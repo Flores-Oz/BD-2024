@@ -44,5 +44,16 @@ namespace Parcial01.Properties {
                 return ((string)(this["Ejercicio1PConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ALLEGRO\\SQLEXPRESS;Initial Catalog=Ejercicio1P;Persist Security Info=" +
+            "True;User ID=sa;Encrypt=True;TrustServerCertificate=True")]
+        public string Ejercicio1PConnectionString2 {
+            get {
+                return ((string)(this["Ejercicio1PConnectionString2"]));
+            }
+        }
     }
 }

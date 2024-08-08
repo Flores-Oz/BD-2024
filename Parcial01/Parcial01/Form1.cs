@@ -78,5 +78,12 @@ namespace Parcial01
             a.MdiParent = this;
             a.Show();
         }
+
+        private void historialCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HistorialCompra a = new HistorialCompra();
+            a.MdiParent = this;
+            a.Show();
+        }
     }
 }

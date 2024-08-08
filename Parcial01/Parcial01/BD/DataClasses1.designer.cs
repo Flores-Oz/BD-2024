@@ -42,18 +42,21 @@ namespace Parcial01.BD
     partial void InsertDetalle_Venta(Detalle_Venta instance);
     partial void UpdateDetalle_Venta(Detalle_Venta instance);
     partial void DeleteDetalle_Venta(Detalle_Venta instance);
+    partial void InsertEnca_Compra(Enca_Compra instance);
+    partial void UpdateEnca_Compra(Enca_Compra instance);
+    partial void DeleteEnca_Compra(Enca_Compra instance);
     partial void InsertEnca_Venta(Enca_Venta instance);
     partial void UpdateEnca_Venta(Enca_Venta instance);
     partial void DeleteEnca_Venta(Enca_Venta instance);
     partial void InsertMarca(Marca instance);
     partial void UpdateMarca(Marca instance);
     partial void DeleteMarca(Marca instance);
+    partial void InsertMunicipio(Municipio instance);
+    partial void UpdateMunicipio(Municipio instance);
+    partial void DeleteMunicipio(Municipio instance);
     partial void InsertProducto(Producto instance);
     partial void UpdateProducto(Producto instance);
     partial void DeleteProducto(Producto instance);
-    partial void InsertEnca_Compra(Enca_Compra instance);
-    partial void UpdateEnca_Compra(Enca_Compra instance);
-    partial void DeleteEnca_Compra(Enca_Compra instance);
     partial void InsertProveedor(Proveedor instance);
     partial void UpdateProveedor(Proveedor instance);
     partial void DeleteProveedor(Proveedor instance);
@@ -83,7 +86,7 @@ namespace Parcial01.BD
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Cliente> Cliente
+		public System.Data.Linq.Table<Cliente> Clientes
 		{
 			get
 			{
@@ -91,7 +94,7 @@ namespace Parcial01.BD
 			}
 		}
 		
-		public System.Data.Linq.Table<Departamento> Departamento
+		public System.Data.Linq.Table<Departamento> Departamentos
 		{
 			get
 			{
@@ -99,7 +102,7 @@ namespace Parcial01.BD
 			}
 		}
 		
-		public System.Data.Linq.Table<Detalle_Compra> Detalle_Compra
+		public System.Data.Linq.Table<Detalle_Compra> Detalle_Compras
 		{
 			get
 			{
@@ -107,7 +110,7 @@ namespace Parcial01.BD
 			}
 		}
 		
-		public System.Data.Linq.Table<Detalle_Venta> Detalle_Venta
+		public System.Data.Linq.Table<Detalle_Venta> Detalle_Ventas
 		{
 			get
 			{
@@ -115,7 +118,15 @@ namespace Parcial01.BD
 			}
 		}
 		
-		public System.Data.Linq.Table<Enca_Venta> Enca_Venta
+		public System.Data.Linq.Table<Enca_Compra> Enca_Compras
+		{
+			get
+			{
+				return this.GetTable<Enca_Compra>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Enca_Venta> Enca_Ventas
 		{
 			get
 			{
@@ -123,7 +134,7 @@ namespace Parcial01.BD
 			}
 		}
 		
-		public System.Data.Linq.Table<Marca> Marca
+		public System.Data.Linq.Table<Marca> Marcas
 		{
 			get
 			{
@@ -131,35 +142,19 @@ namespace Parcial01.BD
 			}
 		}
 		
-		public System.Data.Linq.Table<Producto> Producto
+		public System.Data.Linq.Table<Municipio> Municipios
+		{
+			get
+			{
+				return this.GetTable<Municipio>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Producto> Productos
 		{
 			get
 			{
 				return this.GetTable<Producto>();
-			}
-		}
-		
-		public System.Data.Linq.Table<v_ListadodeClientes> v_ListadodeClientes
-		{
-			get
-			{
-				return this.GetTable<v_ListadodeClientes>();
-			}
-		}
-		
-		public System.Data.Linq.Table<v_ListadoProductos> v_ListadoProductos
-		{
-			get
-			{
-				return this.GetTable<v_ListadoProductos>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Enca_Compra> Enca_Compra
-		{
-			get
-			{
-				return this.GetTable<Enca_Compra>();
 			}
 		}
 		
@@ -168,6 +163,38 @@ namespace Parcial01.BD
 			get
 			{
 				return this.GetTable<Proveedor>();
+			}
+		}
+		
+		public System.Data.Linq.Table<v_ListadoProducto> v_ListadoProductos
+		{
+			get
+			{
+				return this.GetTable<v_ListadoProducto>();
+			}
+		}
+		
+		public System.Data.Linq.Table<v_ListadodeCliente> v_ListadodeClientes
+		{
+			get
+			{
+				return this.GetTable<v_ListadodeCliente>();
+			}
+		}
+		
+		public System.Data.Linq.Table<v_ListaProducto> v_ListaProductos
+		{
+			get
+			{
+				return this.GetTable<v_ListaProducto>();
+			}
+		}
+		
+		public System.Data.Linq.Table<v_HistorialCompra> v_HistorialCompras
+		{
+			get
+			{
+				return this.GetTable<v_HistorialCompra>();
 			}
 		}
 	}
@@ -194,7 +221,9 @@ namespace Parcial01.BD
 		
 		private System.Nullable<int> _codigo_municipio;
 		
-		private EntitySet<Enca_Compra> _Enca_Compra;
+		private EntitySet<Enca_Compra> _Enca_Compras;
+		
+		private EntityRef<Municipio> _Municipio;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -220,7 +249,8 @@ namespace Parcial01.BD
 		
 		public Cliente()
 		{
-			this._Enca_Compra = new EntitySet<Enca_Compra>(new Action<Enca_Compra>(this.attach_Enca_Compra), new Action<Enca_Compra>(this.detach_Enca_Compra));
+			this._Enca_Compras = new EntitySet<Enca_Compra>(new Action<Enca_Compra>(this.attach_Enca_Compras), new Action<Enca_Compra>(this.detach_Enca_Compras));
+			this._Municipio = default(EntityRef<Municipio>);
 			OnCreated();
 		}
 		
@@ -375,6 +405,10 @@ namespace Parcial01.BD
 			{
 				if ((this._codigo_municipio != value))
 				{
+					if (this._Municipio.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Oncodigo_municipioChanging(value);
 					this.SendPropertyChanging();
 					this._codigo_municipio = value;
@@ -384,16 +418,50 @@ namespace Parcial01.BD
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Enca_Compra", Storage="_Enca_Compra", ThisKey="nit_cliente", OtherKey="dpi_cliente")]
-		public EntitySet<Enca_Compra> Enca_Compra
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Enca_Compra", Storage="_Enca_Compras", ThisKey="nit_cliente", OtherKey="dpi_cliente")]
+		public EntitySet<Enca_Compra> Enca_Compras
 		{
 			get
 			{
-				return this._Enca_Compra;
+				return this._Enca_Compras;
 			}
 			set
 			{
-				this._Enca_Compra.Assign(value);
+				this._Enca_Compras.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Municipio_Cliente", Storage="_Municipio", ThisKey="codigo_municipio", OtherKey="codigo_municipio", IsForeignKey=true)]
+		public Municipio Municipio
+		{
+			get
+			{
+				return this._Municipio.Entity;
+			}
+			set
+			{
+				Municipio previousValue = this._Municipio.Entity;
+				if (((previousValue != value) 
+							|| (this._Municipio.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Municipio.Entity = null;
+						previousValue.Clientes.Remove(this);
+					}
+					this._Municipio.Entity = value;
+					if ((value != null))
+					{
+						value.Clientes.Add(this);
+						this._codigo_municipio = value.codigo_municipio;
+					}
+					else
+					{
+						this._codigo_municipio = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Municipio");
+				}
 			}
 		}
 		
@@ -417,13 +485,13 @@ namespace Parcial01.BD
 			}
 		}
 		
-		private void attach_Enca_Compra(Enca_Compra entity)
+		private void attach_Enca_Compras(Enca_Compra entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente = this;
 		}
 		
-		private void detach_Enca_Compra(Enca_Compra entity)
+		private void detach_Enca_Compras(Enca_Compra entity)
 		{
 			this.SendPropertyChanging();
 			entity.Cliente = null;
@@ -440,6 +508,8 @@ namespace Parcial01.BD
 		
 		private string _nombre_departamento;
 		
+		private EntitySet<Municipio> _Municipios;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -452,6 +522,7 @@ namespace Parcial01.BD
 		
 		public Departamento()
 		{
+			this._Municipios = new EntitySet<Municipio>(new Action<Municipio>(this.attach_Municipios), new Action<Municipio>(this.detach_Municipios));
 			OnCreated();
 		}
 		
@@ -495,6 +566,19 @@ namespace Parcial01.BD
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Departamento_Municipio", Storage="_Municipios", ThisKey="codigo_departamento", OtherKey="codigo_departamento")]
+		public EntitySet<Municipio> Municipios
+		{
+			get
+			{
+				return this._Municipios;
+			}
+			set
+			{
+				this._Municipios.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -513,6 +597,18 @@ namespace Parcial01.BD
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Municipios(Municipio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Departamento = this;
+		}
+		
+		private void detach_Municipios(Municipio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Departamento = null;
 		}
 	}
 	
@@ -536,9 +632,9 @@ namespace Parcial01.BD
 		
 		private int _codigo_producto;
 		
-		private EntityRef<Producto> _Producto;
-		
 		private EntityRef<Enca_Compra> _Enca_Compra;
+		
+		private EntityRef<Producto> _Producto;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -562,8 +658,8 @@ namespace Parcial01.BD
 		
 		public Detalle_Compra()
 		{
-			this._Producto = default(EntityRef<Producto>);
 			this._Enca_Compra = default(EntityRef<Enca_Compra>);
+			this._Producto = default(EntityRef<Producto>);
 			OnCreated();
 		}
 		
@@ -715,40 +811,6 @@ namespace Parcial01.BD
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_Detalle_Compra", Storage="_Producto", ThisKey="codigo_producto", OtherKey="codigo_producto", IsForeignKey=true)]
-		public Producto Producto
-		{
-			get
-			{
-				return this._Producto.Entity;
-			}
-			set
-			{
-				Producto previousValue = this._Producto.Entity;
-				if (((previousValue != value) 
-							|| (this._Producto.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Producto.Entity = null;
-						previousValue.Detalle_Compra.Remove(this);
-					}
-					this._Producto.Entity = value;
-					if ((value != null))
-					{
-						value.Detalle_Compra.Add(this);
-						this._codigo_producto = value.codigo_producto;
-					}
-					else
-					{
-						this._codigo_producto = default(int);
-					}
-					this.SendPropertyChanged("Producto");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Enca_Compra_Detalle_Compra", Storage="_Enca_Compra", ThisKey="codigo_compra", OtherKey="codigo_compra", IsForeignKey=true)]
 		public Enca_Compra Enca_Compra
 		{
@@ -766,12 +828,12 @@ namespace Parcial01.BD
 					if ((previousValue != null))
 					{
 						this._Enca_Compra.Entity = null;
-						previousValue.Detalle_Compra.Remove(this);
+						previousValue.Detalle_Compras.Remove(this);
 					}
 					this._Enca_Compra.Entity = value;
 					if ((value != null))
 					{
-						value.Detalle_Compra.Add(this);
+						value.Detalle_Compras.Add(this);
 						this._codigo_compra = value.codigo_compra;
 					}
 					else
@@ -779,6 +841,40 @@ namespace Parcial01.BD
 						this._codigo_compra = default(int);
 					}
 					this.SendPropertyChanged("Enca_Compra");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_Detalle_Compra", Storage="_Producto", ThisKey="codigo_producto", OtherKey="codigo_producto", IsForeignKey=true)]
+		public Producto Producto
+		{
+			get
+			{
+				return this._Producto.Entity;
+			}
+			set
+			{
+				Producto previousValue = this._Producto.Entity;
+				if (((previousValue != value) 
+							|| (this._Producto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Producto.Entity = null;
+						previousValue.Detalle_Compras.Remove(this);
+					}
+					this._Producto.Entity = value;
+					if ((value != null))
+					{
+						value.Detalle_Compras.Add(this);
+						this._codigo_producto = value.codigo_producto;
+					}
+					else
+					{
+						this._codigo_producto = default(int);
+					}
+					this.SendPropertyChanged("Producto");
 				}
 			}
 		}
@@ -1020,12 +1116,12 @@ namespace Parcial01.BD
 					if ((previousValue != null))
 					{
 						this._Enca_Venta.Entity = null;
-						previousValue.Detalle_Venta.Remove(this);
+						previousValue.Detalle_Ventas.Remove(this);
 					}
 					this._Enca_Venta.Entity = value;
 					if ((value != null))
 					{
-						value.Detalle_Venta.Add(this);
+						value.Detalle_Ventas.Add(this);
 						this._codigo_venta = value.codigo_venta;
 					}
 					else
@@ -1054,12 +1150,12 @@ namespace Parcial01.BD
 					if ((previousValue != null))
 					{
 						this._Producto.Entity = null;
-						previousValue.Detalle_Venta.Remove(this);
+						previousValue.Detalle_Ventas.Remove(this);
 					}
 					this._Producto.Entity = value;
 					if ((value != null))
 					{
-						value.Detalle_Venta.Add(this);
+						value.Detalle_Ventas.Add(this);
 						this._codigo_producto = value.codigo_producto;
 					}
 					else
@@ -1092,6 +1188,233 @@ namespace Parcial01.BD
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Enca_Compra")]
+	public partial class Enca_Compra : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _codigo_compra;
+		
+		private System.DateTime _fecha_compra;
+		
+		private decimal _total_compra;
+		
+		private int _total_producto;
+		
+		private string _dpi_cliente;
+		
+		private EntitySet<Detalle_Compra> _Detalle_Compras;
+		
+		private EntityRef<Cliente> _Cliente;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Oncodigo_compraChanging(int value);
+    partial void Oncodigo_compraChanged();
+    partial void Onfecha_compraChanging(System.DateTime value);
+    partial void Onfecha_compraChanged();
+    partial void Ontotal_compraChanging(decimal value);
+    partial void Ontotal_compraChanged();
+    partial void Ontotal_productoChanging(int value);
+    partial void Ontotal_productoChanged();
+    partial void Ondpi_clienteChanging(string value);
+    partial void Ondpi_clienteChanged();
+    #endregion
+		
+		public Enca_Compra()
+		{
+			this._Detalle_Compras = new EntitySet<Detalle_Compra>(new Action<Detalle_Compra>(this.attach_Detalle_Compras), new Action<Detalle_Compra>(this.detach_Detalle_Compras));
+			this._Cliente = default(EntityRef<Cliente>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_compra", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int codigo_compra
+		{
+			get
+			{
+				return this._codigo_compra;
+			}
+			set
+			{
+				if ((this._codigo_compra != value))
+				{
+					this.Oncodigo_compraChanging(value);
+					this.SendPropertyChanging();
+					this._codigo_compra = value;
+					this.SendPropertyChanged("codigo_compra");
+					this.Oncodigo_compraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_compra", DbType="SmallDateTime NOT NULL")]
+		public System.DateTime fecha_compra
+		{
+			get
+			{
+				return this._fecha_compra;
+			}
+			set
+			{
+				if ((this._fecha_compra != value))
+				{
+					this.Onfecha_compraChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_compra = value;
+					this.SendPropertyChanged("fecha_compra");
+					this.Onfecha_compraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_compra", DbType="Money NOT NULL")]
+		public decimal total_compra
+		{
+			get
+			{
+				return this._total_compra;
+			}
+			set
+			{
+				if ((this._total_compra != value))
+				{
+					this.Ontotal_compraChanging(value);
+					this.SendPropertyChanging();
+					this._total_compra = value;
+					this.SendPropertyChanged("total_compra");
+					this.Ontotal_compraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_producto", DbType="Int NOT NULL")]
+		public int total_producto
+		{
+			get
+			{
+				return this._total_producto;
+			}
+			set
+			{
+				if ((this._total_producto != value))
+				{
+					this.Ontotal_productoChanging(value);
+					this.SendPropertyChanging();
+					this._total_producto = value;
+					this.SendPropertyChanged("total_producto");
+					this.Ontotal_productoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dpi_cliente", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string dpi_cliente
+		{
+			get
+			{
+				return this._dpi_cliente;
+			}
+			set
+			{
+				if ((this._dpi_cliente != value))
+				{
+					if (this._Cliente.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Ondpi_clienteChanging(value);
+					this.SendPropertyChanging();
+					this._dpi_cliente = value;
+					this.SendPropertyChanged("dpi_cliente");
+					this.Ondpi_clienteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Enca_Compra_Detalle_Compra", Storage="_Detalle_Compras", ThisKey="codigo_compra", OtherKey="codigo_compra")]
+		public EntitySet<Detalle_Compra> Detalle_Compras
+		{
+			get
+			{
+				return this._Detalle_Compras;
+			}
+			set
+			{
+				this._Detalle_Compras.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Enca_Compra", Storage="_Cliente", ThisKey="dpi_cliente", OtherKey="nit_cliente", IsForeignKey=true)]
+		public Cliente Cliente
+		{
+			get
+			{
+				return this._Cliente.Entity;
+			}
+			set
+			{
+				Cliente previousValue = this._Cliente.Entity;
+				if (((previousValue != value) 
+							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Cliente.Entity = null;
+						previousValue.Enca_Compras.Remove(this);
+					}
+					this._Cliente.Entity = value;
+					if ((value != null))
+					{
+						value.Enca_Compras.Add(this);
+						this._dpi_cliente = value.nit_cliente;
+					}
+					else
+					{
+						this._dpi_cliente = default(string);
+					}
+					this.SendPropertyChanged("Cliente");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Detalle_Compras(Detalle_Compra entity)
+		{
+			this.SendPropertyChanging();
+			entity.Enca_Compra = this;
+		}
+		
+		private void detach_Detalle_Compras(Detalle_Compra entity)
+		{
+			this.SendPropertyChanging();
+			entity.Enca_Compra = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Enca_Venta")]
 	public partial class Enca_Venta : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1108,7 +1431,7 @@ namespace Parcial01.BD
 		
 		private string _nit_proveedor;
 		
-		private EntitySet<Detalle_Venta> _Detalle_Venta;
+		private EntitySet<Detalle_Venta> _Detalle_Ventas;
 		
 		private EntityRef<Proveedor> _Proveedor;
 		
@@ -1130,7 +1453,7 @@ namespace Parcial01.BD
 		
 		public Enca_Venta()
 		{
-			this._Detalle_Venta = new EntitySet<Detalle_Venta>(new Action<Detalle_Venta>(this.attach_Detalle_Venta), new Action<Detalle_Venta>(this.detach_Detalle_Venta));
+			this._Detalle_Ventas = new EntitySet<Detalle_Venta>(new Action<Detalle_Venta>(this.attach_Detalle_Ventas), new Action<Detalle_Venta>(this.detach_Detalle_Ventas));
 			this._Proveedor = default(EntityRef<Proveedor>);
 			OnCreated();
 		}
@@ -1239,16 +1562,16 @@ namespace Parcial01.BD
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Enca_Venta_Detalle_Venta", Storage="_Detalle_Venta", ThisKey="codigo_venta", OtherKey="codigo_venta")]
-		public EntitySet<Detalle_Venta> Detalle_Venta
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Enca_Venta_Detalle_Venta", Storage="_Detalle_Ventas", ThisKey="codigo_venta", OtherKey="codigo_venta")]
+		public EntitySet<Detalle_Venta> Detalle_Ventas
 		{
 			get
 			{
-				return this._Detalle_Venta;
+				return this._Detalle_Ventas;
 			}
 			set
 			{
-				this._Detalle_Venta.Assign(value);
+				this._Detalle_Ventas.Assign(value);
 			}
 		}
 		
@@ -1306,13 +1629,13 @@ namespace Parcial01.BD
 			}
 		}
 		
-		private void attach_Detalle_Venta(Detalle_Venta entity)
+		private void attach_Detalle_Ventas(Detalle_Venta entity)
 		{
 			this.SendPropertyChanging();
 			entity.Enca_Venta = this;
 		}
 		
-		private void detach_Detalle_Venta(Detalle_Venta entity)
+		private void detach_Detalle_Ventas(Detalle_Venta entity)
 		{
 			this.SendPropertyChanging();
 			entity.Enca_Venta = null;
@@ -1329,7 +1652,7 @@ namespace Parcial01.BD
 		
 		private string _nombre_marca;
 		
-		private EntitySet<Producto> _Producto;
+		private EntitySet<Producto> _Productos;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1343,7 +1666,7 @@ namespace Parcial01.BD
 		
 		public Marca()
 		{
-			this._Producto = new EntitySet<Producto>(new Action<Producto>(this.attach_Producto), new Action<Producto>(this.detach_Producto));
+			this._Productos = new EntitySet<Producto>(new Action<Producto>(this.attach_Productos), new Action<Producto>(this.detach_Productos));
 			OnCreated();
 		}
 		
@@ -1387,16 +1710,16 @@ namespace Parcial01.BD
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Marca_Producto", Storage="_Producto", ThisKey="codigo_marca", OtherKey="codigo_marca")]
-		public EntitySet<Producto> Producto
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Marca_Producto", Storage="_Productos", ThisKey="codigo_marca", OtherKey="codigo_marca")]
+		public EntitySet<Producto> Productos
 		{
 			get
 			{
-				return this._Producto;
+				return this._Productos;
 			}
 			set
 			{
-				this._Producto.Assign(value);
+				this._Productos.Assign(value);
 			}
 		}
 		
@@ -1420,16 +1743,195 @@ namespace Parcial01.BD
 			}
 		}
 		
-		private void attach_Producto(Producto entity)
+		private void attach_Productos(Producto entity)
 		{
 			this.SendPropertyChanging();
 			entity.Marca = this;
 		}
 		
-		private void detach_Producto(Producto entity)
+		private void detach_Productos(Producto entity)
 		{
 			this.SendPropertyChanging();
 			entity.Marca = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Municipio")]
+	public partial class Municipio : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _codigo_municipio;
+		
+		private string _nombre_municipio;
+		
+		private int _codigo_departamento;
+		
+		private EntitySet<Cliente> _Clientes;
+		
+		private EntityRef<Departamento> _Departamento;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Oncodigo_municipioChanging(int value);
+    partial void Oncodigo_municipioChanged();
+    partial void Onnombre_municipioChanging(string value);
+    partial void Onnombre_municipioChanged();
+    partial void Oncodigo_departamentoChanging(int value);
+    partial void Oncodigo_departamentoChanged();
+    #endregion
+		
+		public Municipio()
+		{
+			this._Clientes = new EntitySet<Cliente>(new Action<Cliente>(this.attach_Clientes), new Action<Cliente>(this.detach_Clientes));
+			this._Departamento = default(EntityRef<Departamento>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_municipio", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int codigo_municipio
+		{
+			get
+			{
+				return this._codigo_municipio;
+			}
+			set
+			{
+				if ((this._codigo_municipio != value))
+				{
+					this.Oncodigo_municipioChanging(value);
+					this.SendPropertyChanging();
+					this._codigo_municipio = value;
+					this.SendPropertyChanged("codigo_municipio");
+					this.Oncodigo_municipioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_municipio", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombre_municipio
+		{
+			get
+			{
+				return this._nombre_municipio;
+			}
+			set
+			{
+				if ((this._nombre_municipio != value))
+				{
+					this.Onnombre_municipioChanging(value);
+					this.SendPropertyChanging();
+					this._nombre_municipio = value;
+					this.SendPropertyChanged("nombre_municipio");
+					this.Onnombre_municipioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_departamento", DbType="Int NOT NULL")]
+		public int codigo_departamento
+		{
+			get
+			{
+				return this._codigo_departamento;
+			}
+			set
+			{
+				if ((this._codigo_departamento != value))
+				{
+					if (this._Departamento.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncodigo_departamentoChanging(value);
+					this.SendPropertyChanging();
+					this._codigo_departamento = value;
+					this.SendPropertyChanged("codigo_departamento");
+					this.Oncodigo_departamentoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Municipio_Cliente", Storage="_Clientes", ThisKey="codigo_municipio", OtherKey="codigo_municipio")]
+		public EntitySet<Cliente> Clientes
+		{
+			get
+			{
+				return this._Clientes;
+			}
+			set
+			{
+				this._Clientes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Departamento_Municipio", Storage="_Departamento", ThisKey="codigo_departamento", OtherKey="codigo_departamento", IsForeignKey=true)]
+		public Departamento Departamento
+		{
+			get
+			{
+				return this._Departamento.Entity;
+			}
+			set
+			{
+				Departamento previousValue = this._Departamento.Entity;
+				if (((previousValue != value) 
+							|| (this._Departamento.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Departamento.Entity = null;
+						previousValue.Municipios.Remove(this);
+					}
+					this._Departamento.Entity = value;
+					if ((value != null))
+					{
+						value.Municipios.Add(this);
+						this._codigo_departamento = value.codigo_departamento;
+					}
+					else
+					{
+						this._codigo_departamento = default(int);
+					}
+					this.SendPropertyChanged("Departamento");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Clientes(Cliente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Municipio = this;
+		}
+		
+		private void detach_Clientes(Cliente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Municipio = null;
 		}
 	}
 	
@@ -1451,9 +1953,9 @@ namespace Parcial01.BD
 		
 		private int _codigo_marca;
 		
-		private EntitySet<Detalle_Compra> _Detalle_Compra;
+		private EntitySet<Detalle_Compra> _Detalle_Compras;
 		
-		private EntitySet<Detalle_Venta> _Detalle_Venta;
+		private EntitySet<Detalle_Venta> _Detalle_Ventas;
 		
 		private EntityRef<Marca> _Marca;
 		
@@ -1477,8 +1979,8 @@ namespace Parcial01.BD
 		
 		public Producto()
 		{
-			this._Detalle_Compra = new EntitySet<Detalle_Compra>(new Action<Detalle_Compra>(this.attach_Detalle_Compra), new Action<Detalle_Compra>(this.detach_Detalle_Compra));
-			this._Detalle_Venta = new EntitySet<Detalle_Venta>(new Action<Detalle_Venta>(this.attach_Detalle_Venta), new Action<Detalle_Venta>(this.detach_Detalle_Venta));
+			this._Detalle_Compras = new EntitySet<Detalle_Compra>(new Action<Detalle_Compra>(this.attach_Detalle_Compras), new Action<Detalle_Compra>(this.detach_Detalle_Compras));
+			this._Detalle_Ventas = new EntitySet<Detalle_Venta>(new Action<Detalle_Venta>(this.attach_Detalle_Ventas), new Action<Detalle_Venta>(this.detach_Detalle_Ventas));
 			this._Marca = default(EntityRef<Marca>);
 			OnCreated();
 		}
@@ -1607,29 +2109,29 @@ namespace Parcial01.BD
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_Detalle_Compra", Storage="_Detalle_Compra", ThisKey="codigo_producto", OtherKey="codigo_producto")]
-		public EntitySet<Detalle_Compra> Detalle_Compra
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_Detalle_Compra", Storage="_Detalle_Compras", ThisKey="codigo_producto", OtherKey="codigo_producto")]
+		public EntitySet<Detalle_Compra> Detalle_Compras
 		{
 			get
 			{
-				return this._Detalle_Compra;
+				return this._Detalle_Compras;
 			}
 			set
 			{
-				this._Detalle_Compra.Assign(value);
+				this._Detalle_Compras.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_Detalle_Venta", Storage="_Detalle_Venta", ThisKey="codigo_producto", OtherKey="codigo_producto")]
-		public EntitySet<Detalle_Venta> Detalle_Venta
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producto_Detalle_Venta", Storage="_Detalle_Ventas", ThisKey="codigo_producto", OtherKey="codigo_producto")]
+		public EntitySet<Detalle_Venta> Detalle_Ventas
 		{
 			get
 			{
-				return this._Detalle_Venta;
+				return this._Detalle_Ventas;
 			}
 			set
 			{
-				this._Detalle_Venta.Assign(value);
+				this._Detalle_Ventas.Assign(value);
 			}
 		}
 		
@@ -1650,12 +2152,12 @@ namespace Parcial01.BD
 					if ((previousValue != null))
 					{
 						this._Marca.Entity = null;
-						previousValue.Producto.Remove(this);
+						previousValue.Productos.Remove(this);
 					}
 					this._Marca.Entity = value;
 					if ((value != null))
 					{
-						value.Producto.Add(this);
+						value.Productos.Add(this);
 						this._codigo_marca = value.codigo_marca;
 					}
 					else
@@ -1687,453 +2189,28 @@ namespace Parcial01.BD
 			}
 		}
 		
-		private void attach_Detalle_Compra(Detalle_Compra entity)
+		private void attach_Detalle_Compras(Detalle_Compra entity)
 		{
 			this.SendPropertyChanging();
 			entity.Producto = this;
 		}
 		
-		private void detach_Detalle_Compra(Detalle_Compra entity)
+		private void detach_Detalle_Compras(Detalle_Compra entity)
 		{
 			this.SendPropertyChanging();
 			entity.Producto = null;
 		}
 		
-		private void attach_Detalle_Venta(Detalle_Venta entity)
+		private void attach_Detalle_Ventas(Detalle_Venta entity)
 		{
 			this.SendPropertyChanging();
 			entity.Producto = this;
 		}
 		
-		private void detach_Detalle_Venta(Detalle_Venta entity)
+		private void detach_Detalle_Ventas(Detalle_Venta entity)
 		{
 			this.SendPropertyChanging();
 			entity.Producto = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_ListadodeClientes")]
-	public partial class v_ListadodeClientes
-	{
-		
-		private string _NIT;
-		
-		private string _Nombres;
-		
-		private string _Apellidos;
-		
-		private string _Direccion;
-		
-		private System.DateTime _FechaNac;
-		
-		public v_ListadodeClientes()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIT", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string NIT
-		{
-			get
-			{
-				return this._NIT;
-			}
-			set
-			{
-				if ((this._NIT != value))
-				{
-					this._NIT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombres", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Nombres
-		{
-			get
-			{
-				return this._Nombres;
-			}
-			set
-			{
-				if ((this._Nombres != value))
-				{
-					this._Nombres = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellidos", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Apellidos
-		{
-			get
-			{
-				return this._Apellidos;
-			}
-			set
-			{
-				if ((this._Apellidos != value))
-				{
-					this._Apellidos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="NVarChar(300) NOT NULL", CanBeNull=false)]
-		public string Direccion
-		{
-			get
-			{
-				return this._Direccion;
-			}
-			set
-			{
-				if ((this._Direccion != value))
-				{
-					this._Direccion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaNac", DbType="SmallDateTime NOT NULL")]
-		public System.DateTime FechaNac
-		{
-			get
-			{
-				return this._FechaNac;
-			}
-			set
-			{
-				if ((this._FechaNac != value))
-				{
-					this._FechaNac = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_ListadoProductos")]
-	public partial class v_ListadoProductos
-	{
-		
-		private int _codigo_producto;
-		
-		private string _nombre_producto;
-		
-		private decimal _precio_costo;
-		
-		private int _existencia_producto;
-		
-		private string _nombre_marca;
-		
-		public v_ListadoProductos()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_producto", DbType="Int NOT NULL")]
-		public int codigo_producto
-		{
-			get
-			{
-				return this._codigo_producto;
-			}
-			set
-			{
-				if ((this._codigo_producto != value))
-				{
-					this._codigo_producto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_producto", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string nombre_producto
-		{
-			get
-			{
-				return this._nombre_producto;
-			}
-			set
-			{
-				if ((this._nombre_producto != value))
-				{
-					this._nombre_producto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio_costo", DbType="Money NOT NULL")]
-		public decimal precio_costo
-		{
-			get
-			{
-				return this._precio_costo;
-			}
-			set
-			{
-				if ((this._precio_costo != value))
-				{
-					this._precio_costo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_existencia_producto", DbType="Int NOT NULL")]
-		public int existencia_producto
-		{
-			get
-			{
-				return this._existencia_producto;
-			}
-			set
-			{
-				if ((this._existencia_producto != value))
-				{
-					this._existencia_producto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_marca", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string nombre_marca
-		{
-			get
-			{
-				return this._nombre_marca;
-			}
-			set
-			{
-				if ((this._nombre_marca != value))
-				{
-					this._nombre_marca = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Enca_Compra")]
-	public partial class Enca_Compra : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _codigo_compra;
-		
-		private System.DateTime _fecha_compra;
-		
-		private decimal _total_compra;
-		
-		private int _total_producto;
-		
-		private string _dpi_cliente;
-		
-		private EntitySet<Detalle_Compra> _Detalle_Compra;
-		
-		private EntityRef<Cliente> _Cliente;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Oncodigo_compraChanging(int value);
-    partial void Oncodigo_compraChanged();
-    partial void Onfecha_compraChanging(System.DateTime value);
-    partial void Onfecha_compraChanged();
-    partial void Ontotal_compraChanging(decimal value);
-    partial void Ontotal_compraChanged();
-    partial void Ontotal_productoChanging(int value);
-    partial void Ontotal_productoChanged();
-    partial void Ondpi_clienteChanging(string value);
-    partial void Ondpi_clienteChanged();
-    #endregion
-		
-		public Enca_Compra()
-		{
-			this._Detalle_Compra = new EntitySet<Detalle_Compra>(new Action<Detalle_Compra>(this.attach_Detalle_Compra), new Action<Detalle_Compra>(this.detach_Detalle_Compra));
-			this._Cliente = default(EntityRef<Cliente>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_compra", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int codigo_compra
-		{
-			get
-			{
-				return this._codigo_compra;
-			}
-			set
-			{
-				if ((this._codigo_compra != value))
-				{
-					this.Oncodigo_compraChanging(value);
-					this.SendPropertyChanging();
-					this._codigo_compra = value;
-					this.SendPropertyChanged("codigo_compra");
-					this.Oncodigo_compraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_compra", DbType="SmallDateTime NOT NULL")]
-		public System.DateTime fecha_compra
-		{
-			get
-			{
-				return this._fecha_compra;
-			}
-			set
-			{
-				if ((this._fecha_compra != value))
-				{
-					this.Onfecha_compraChanging(value);
-					this.SendPropertyChanging();
-					this._fecha_compra = value;
-					this.SendPropertyChanged("fecha_compra");
-					this.Onfecha_compraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_compra", DbType="Money NOT NULL")]
-		public decimal total_compra
-		{
-			get
-			{
-				return this._total_compra;
-			}
-			set
-			{
-				if ((this._total_compra != value))
-				{
-					this.Ontotal_compraChanging(value);
-					this.SendPropertyChanging();
-					this._total_compra = value;
-					this.SendPropertyChanged("total_compra");
-					this.Ontotal_compraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_producto", DbType="Int NOT NULL")]
-		public int total_producto
-		{
-			get
-			{
-				return this._total_producto;
-			}
-			set
-			{
-				if ((this._total_producto != value))
-				{
-					this.Ontotal_productoChanging(value);
-					this.SendPropertyChanging();
-					this._total_producto = value;
-					this.SendPropertyChanged("total_producto");
-					this.Ontotal_productoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dpi_cliente", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string dpi_cliente
-		{
-			get
-			{
-				return this._dpi_cliente;
-			}
-			set
-			{
-				if ((this._dpi_cliente != value))
-				{
-					if (this._Cliente.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Ondpi_clienteChanging(value);
-					this.SendPropertyChanging();
-					this._dpi_cliente = value;
-					this.SendPropertyChanged("dpi_cliente");
-					this.Ondpi_clienteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Enca_Compra_Detalle_Compra", Storage="_Detalle_Compra", ThisKey="codigo_compra", OtherKey="codigo_compra")]
-		public EntitySet<Detalle_Compra> Detalle_Compra
-		{
-			get
-			{
-				return this._Detalle_Compra;
-			}
-			set
-			{
-				this._Detalle_Compra.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Enca_Compra", Storage="_Cliente", ThisKey="dpi_cliente", OtherKey="nit_cliente", IsForeignKey=true)]
-		public Cliente Cliente
-		{
-			get
-			{
-				return this._Cliente.Entity;
-			}
-			set
-			{
-				Cliente previousValue = this._Cliente.Entity;
-				if (((previousValue != value) 
-							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Cliente.Entity = null;
-						previousValue.Enca_Compra.Remove(this);
-					}
-					this._Cliente.Entity = value;
-					if ((value != null))
-					{
-						value.Enca_Compra.Add(this);
-						this._dpi_cliente = value.nit_cliente;
-					}
-					else
-					{
-						this._dpi_cliente = default(string);
-					}
-					this.SendPropertyChanged("Cliente");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Detalle_Compra(Detalle_Compra entity)
-		{
-			this.SendPropertyChanging();
-			entity.Enca_Compra = this;
-		}
-		
-		private void detach_Detalle_Compra(Detalle_Compra entity)
-		{
-			this.SendPropertyChanging();
-			entity.Enca_Compra = null;
 		}
 	}
 	
@@ -2296,6 +2373,582 @@ namespace Parcial01.BD
 		{
 			this.SendPropertyChanging();
 			entity.Proveedor = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_ListadoProductos")]
+	public partial class v_ListadoProducto
+	{
+		
+		private int _codigo_producto;
+		
+		private string _nombre_producto;
+		
+		private decimal _precio_costo;
+		
+		private int _existencia_producto;
+		
+		private string _nombre_marca;
+		
+		public v_ListadoProducto()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_producto", DbType="Int NOT NULL")]
+		public int codigo_producto
+		{
+			get
+			{
+				return this._codigo_producto;
+			}
+			set
+			{
+				if ((this._codigo_producto != value))
+				{
+					this._codigo_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_producto", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombre_producto
+		{
+			get
+			{
+				return this._nombre_producto;
+			}
+			set
+			{
+				if ((this._nombre_producto != value))
+				{
+					this._nombre_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio_costo", DbType="Money NOT NULL")]
+		public decimal precio_costo
+		{
+			get
+			{
+				return this._precio_costo;
+			}
+			set
+			{
+				if ((this._precio_costo != value))
+				{
+					this._precio_costo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_existencia_producto", DbType="Int NOT NULL")]
+		public int existencia_producto
+		{
+			get
+			{
+				return this._existencia_producto;
+			}
+			set
+			{
+				if ((this._existencia_producto != value))
+				{
+					this._existencia_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_marca", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombre_marca
+		{
+			get
+			{
+				return this._nombre_marca;
+			}
+			set
+			{
+				if ((this._nombre_marca != value))
+				{
+					this._nombre_marca = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_ListadodeClientes")]
+	public partial class v_ListadodeCliente
+	{
+		
+		private string _NIT;
+		
+		private string _Nombres;
+		
+		private string _Apellidos;
+		
+		private string _Direccion;
+		
+		private System.DateTime _FechaNac;
+		
+		public v_ListadodeCliente()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIT", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string NIT
+		{
+			get
+			{
+				return this._NIT;
+			}
+			set
+			{
+				if ((this._NIT != value))
+				{
+					this._NIT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombres", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Nombres
+		{
+			get
+			{
+				return this._Nombres;
+			}
+			set
+			{
+				if ((this._Nombres != value))
+				{
+					this._Nombres = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellidos", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Apellidos
+		{
+			get
+			{
+				return this._Apellidos;
+			}
+			set
+			{
+				if ((this._Apellidos != value))
+				{
+					this._Apellidos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="NVarChar(300) NOT NULL", CanBeNull=false)]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaNac", DbType="SmallDateTime NOT NULL")]
+		public System.DateTime FechaNac
+		{
+			get
+			{
+				return this._FechaNac;
+			}
+			set
+			{
+				if ((this._FechaNac != value))
+				{
+					this._FechaNac = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_ListaProductos")]
+	public partial class v_ListaProducto
+	{
+		
+		private int _codigo_producto;
+		
+		private string _nombre_producto;
+		
+		private decimal _precio_costo;
+		
+		private decimal _precio_venta;
+		
+		private int _existencia_producto;
+		
+		private int _codigo_marca;
+		
+		private string _nombre_marca;
+		
+		public v_ListaProducto()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_producto", DbType="Int NOT NULL")]
+		public int codigo_producto
+		{
+			get
+			{
+				return this._codigo_producto;
+			}
+			set
+			{
+				if ((this._codigo_producto != value))
+				{
+					this._codigo_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_producto", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombre_producto
+		{
+			get
+			{
+				return this._nombre_producto;
+			}
+			set
+			{
+				if ((this._nombre_producto != value))
+				{
+					this._nombre_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio_costo", DbType="Money NOT NULL")]
+		public decimal precio_costo
+		{
+			get
+			{
+				return this._precio_costo;
+			}
+			set
+			{
+				if ((this._precio_costo != value))
+				{
+					this._precio_costo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio_venta", DbType="Money NOT NULL")]
+		public decimal precio_venta
+		{
+			get
+			{
+				return this._precio_venta;
+			}
+			set
+			{
+				if ((this._precio_venta != value))
+				{
+					this._precio_venta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_existencia_producto", DbType="Int NOT NULL")]
+		public int existencia_producto
+		{
+			get
+			{
+				return this._existencia_producto;
+			}
+			set
+			{
+				if ((this._existencia_producto != value))
+				{
+					this._existencia_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_marca", DbType="Int NOT NULL")]
+		public int codigo_marca
+		{
+			get
+			{
+				return this._codigo_marca;
+			}
+			set
+			{
+				if ((this._codigo_marca != value))
+				{
+					this._codigo_marca = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_marca", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombre_marca
+		{
+			get
+			{
+				return this._nombre_marca;
+			}
+			set
+			{
+				if ((this._nombre_marca != value))
+				{
+					this._nombre_marca = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_HistorialCompra")]
+	public partial class v_HistorialCompra
+	{
+		
+		private int _codigo_compra;
+		
+		private System.DateTime _fecha_compra;
+		
+		private decimal _total_compra;
+		
+		private int _total_producto;
+		
+		private string _dpi_cliente;
+		
+		private string _nombre_cliente;
+		
+		private string _apellido_cliente;
+		
+		private int _cantidad;
+		
+		private decimal _precio_costo;
+		
+		private decimal _precio_venta;
+		
+		private decimal _subtotal;
+		
+		private int _codigo_producto;
+		
+		private string _nombre_producto;
+		
+		public v_HistorialCompra()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_compra", DbType="Int NOT NULL")]
+		public int codigo_compra
+		{
+			get
+			{
+				return this._codigo_compra;
+			}
+			set
+			{
+				if ((this._codigo_compra != value))
+				{
+					this._codigo_compra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_compra", DbType="SmallDateTime NOT NULL")]
+		public System.DateTime fecha_compra
+		{
+			get
+			{
+				return this._fecha_compra;
+			}
+			set
+			{
+				if ((this._fecha_compra != value))
+				{
+					this._fecha_compra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_compra", DbType="Money NOT NULL")]
+		public decimal total_compra
+		{
+			get
+			{
+				return this._total_compra;
+			}
+			set
+			{
+				if ((this._total_compra != value))
+				{
+					this._total_compra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_producto", DbType="Int NOT NULL")]
+		public int total_producto
+		{
+			get
+			{
+				return this._total_producto;
+			}
+			set
+			{
+				if ((this._total_producto != value))
+				{
+					this._total_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dpi_cliente", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string dpi_cliente
+		{
+			get
+			{
+				return this._dpi_cliente;
+			}
+			set
+			{
+				if ((this._dpi_cliente != value))
+				{
+					this._dpi_cliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_cliente", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombre_cliente
+		{
+			get
+			{
+				return this._nombre_cliente;
+			}
+			set
+			{
+				if ((this._nombre_cliente != value))
+				{
+					this._nombre_cliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido_cliente", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string apellido_cliente
+		{
+			get
+			{
+				return this._apellido_cliente;
+			}
+			set
+			{
+				if ((this._apellido_cliente != value))
+				{
+					this._apellido_cliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cantidad", DbType="Int NOT NULL")]
+		public int cantidad
+		{
+			get
+			{
+				return this._cantidad;
+			}
+			set
+			{
+				if ((this._cantidad != value))
+				{
+					this._cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio_costo", DbType="Money NOT NULL")]
+		public decimal precio_costo
+		{
+			get
+			{
+				return this._precio_costo;
+			}
+			set
+			{
+				if ((this._precio_costo != value))
+				{
+					this._precio_costo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio_venta", DbType="Money NOT NULL")]
+		public decimal precio_venta
+		{
+			get
+			{
+				return this._precio_venta;
+			}
+			set
+			{
+				if ((this._precio_venta != value))
+				{
+					this._precio_venta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_subtotal", DbType="Money NOT NULL")]
+		public decimal subtotal
+		{
+			get
+			{
+				return this._subtotal;
+			}
+			set
+			{
+				if ((this._subtotal != value))
+				{
+					this._subtotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_producto", DbType="Int NOT NULL")]
+		public int codigo_producto
+		{
+			get
+			{
+				return this._codigo_producto;
+			}
+			set
+			{
+				if ((this._codigo_producto != value))
+				{
+					this._codigo_producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_producto", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombre_producto
+		{
+			get
+			{
+				return this._nombre_producto;
+			}
+			set
+			{
+				if ((this._nombre_producto != value))
+				{
+					this._nombre_producto = value;
+				}
+			}
 		}
 	}
 }

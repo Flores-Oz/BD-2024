@@ -32,6 +32,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxMarca = new System.Windows.Forms.ComboBox();
             this.textBoxExistencia = new System.Windows.Forms.TextBox();
             this.textBoxPVenta = new System.Windows.Forms.TextBox();
             this.textBoxPCosto = new System.Windows.Forms.TextBox();
@@ -40,10 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxMarca = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,6 +97,23 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Producto";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 187);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 22);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Marca";
+            // 
+            // comboBoxMarca
+            // 
+            this.comboBoxMarca.FormattingEnabled = true;
+            this.comboBoxMarca.Location = new System.Drawing.Point(142, 184);
+            this.comboBoxMarca.Name = "comboBoxMarca";
+            this.comboBoxMarca.Size = new System.Drawing.Size(192, 30);
+            this.comboBoxMarca.TabIndex = 9;
             // 
             // textBoxExistencia
             // 
@@ -163,26 +179,8 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // comboBoxMarca
-            // 
-            this.comboBoxMarca.FormattingEnabled = true;
-            this.comboBoxMarca.Location = new System.Drawing.Point(142, 184);
-            this.comboBoxMarca.Name = "comboBoxMarca";
-            this.comboBoxMarca.Size = new System.Drawing.Size(192, 30);
-            this.comboBoxMarca.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 187);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 22);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Marca";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Location = new System.Drawing.Point(12, 271);
             this.groupBox2.Name = "groupBox2";
@@ -191,19 +189,9 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(192, 102);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 72);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(31, 21);
+            this.button1.Location = new System.Drawing.Point(32, 39);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(158, 72);
             this.button1.TabIndex = 0;
@@ -250,7 +238,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxMarca;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
     }
 }

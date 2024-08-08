@@ -29,3 +29,4 @@ C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Bu
 C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Ingresos.Proveedores.resources
 C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Ingresos.Clientes.resources
 C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Ingresos.Producto.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Busquedas.HistorialCompra.resources

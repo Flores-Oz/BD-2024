@@ -21,7 +21,7 @@ namespace Parcial01.Ingresos
 
         private void Producto_Load(object sender, EventArgs e)
         {
-            var marcas = from mar in milinq.Marca
+            var marcas = from mar in milinq.Marcas
                          select new
                          {
                              Codigo = mar.codigo_marca,
@@ -56,7 +56,7 @@ namespace Parcial01.Ingresos
                     existencia_producto = Convert.ToInt32(textBoxExistencia.Text),
                     codigo_marca = Convert.ToInt32(comboBoxMarca.SelectedValue)
                 };
-                milinq.Producto.InsertOnSubmit(newProdu);
+                milinq.Productos.InsertOnSubmit(newProdu);
                 milinq.SubmitChanges();
                 MessageBox.Show("Producto Creado");
                 Limpiar();
@@ -106,14 +106,7 @@ namespace Parcial01.Ingresos
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
-            {
-                textBoxNombre.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                textBoxPCosto.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                textBoxPVenta.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                textBoxExistencia.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                comboBoxMarca.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            }
+            
         }
     }
 }

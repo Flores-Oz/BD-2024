@@ -45,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonVender = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.labeLTotalProductos = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -77,9 +76,9 @@
             this.groupBox1.Controls.Add(this.textBoxNIT);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(729, 188);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -102,7 +101,7 @@
             // 
             this.textBoxTelefono.Enabled = false;
             this.textBoxTelefono.Location = new System.Drawing.Point(348, 130);
-            this.textBoxTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTelefono.Name = "textBoxTelefono";
             this.textBoxTelefono.Size = new System.Drawing.Size(243, 30);
             this.textBoxTelefono.TabIndex = 9;
@@ -122,7 +121,7 @@
             // 
             this.textBoxDireccion.Enabled = false;
             this.textBoxDireccion.Location = new System.Drawing.Point(95, 130);
-            this.textBoxDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDireccion.Name = "textBoxDireccion";
             this.textBoxDireccion.Size = new System.Drawing.Size(243, 30);
             this.textBoxDireccion.TabIndex = 7;
@@ -141,7 +140,7 @@
             // 
             this.textBoxApellido.Enabled = false;
             this.textBoxApellido.Location = new System.Drawing.Point(477, 63);
-            this.textBoxApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxApellido.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxApellido.Name = "textBoxApellido";
             this.textBoxApellido.Size = new System.Drawing.Size(243, 30);
             this.textBoxApellido.TabIndex = 5;
@@ -160,7 +159,7 @@
             // 
             this.textBoxNombres.Enabled = false;
             this.textBoxNombres.Location = new System.Drawing.Point(224, 63);
-            this.textBoxNombres.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombres.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombres.Name = "textBoxNombres";
             this.textBoxNombres.Size = new System.Drawing.Size(243, 30);
             this.textBoxNombres.TabIndex = 3;
@@ -178,7 +177,7 @@
             // textBoxNIT
             // 
             this.textBoxNIT.Location = new System.Drawing.Point(32, 63);
-            this.textBoxNIT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNIT.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNIT.Name = "textBoxNIT";
             this.textBoxNIT.Size = new System.Drawing.Size(183, 30);
             this.textBoxNIT.TabIndex = 1;
@@ -191,9 +190,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(16, 210);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(729, 123);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
@@ -202,7 +201,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(395, 41);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(285, 70);
             this.button1.TabIndex = 1;
@@ -214,7 +213,7 @@
             // 
             this.dateCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateCompra.Location = new System.Drawing.Point(32, 69);
-            this.dateCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateCompra.Margin = new System.Windows.Forms.Padding(4);
             this.dateCompra.Name = "dateCompra";
             this.dateCompra.Size = new System.Drawing.Size(283, 30);
             this.dateCompra.TabIndex = 13;
@@ -232,12 +231,11 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.buttonVender);
-            this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(16, 341);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(729, 119);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
@@ -245,24 +243,13 @@
             // buttonVender
             // 
             this.buttonVender.Location = new System.Drawing.Point(95, 31);
-            this.buttonVender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonVender.Margin = new System.Windows.Forms.Padding(4);
             this.buttonVender.Name = "buttonVender";
             this.buttonVender.Size = new System.Drawing.Size(204, 81);
             this.buttonVender.TabIndex = 0;
             this.buttonVender.Text = "Comprar";
             this.buttonVender.UseVisualStyleBackColor = true;
             this.buttonVender.Click += new System.EventHandler(this.buttonVender_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(408, 31);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(204, 81);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Calcular";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox4
             // 
@@ -277,9 +264,9 @@
             this.groupBox4.Controls.Add(this.dataGridViewLista);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(753, 18);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(819, 460);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
@@ -321,7 +308,7 @@
             // textBoxDescuento
             // 
             this.textBoxDescuento.Location = new System.Drawing.Point(719, 379);
-            this.textBoxDescuento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDescuento.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDescuento.Name = "textBoxDescuento";
             this.textBoxDescuento.Size = new System.Drawing.Size(59, 26);
             this.textBoxDescuento.TabIndex = 7;
@@ -376,7 +363,7 @@
             // 
             this.dataGridViewLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLista.Location = new System.Drawing.Point(8, 31);
-            this.dataGridViewLista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewLista.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewLista.Name = "dataGridViewLista";
             this.dataGridViewLista.RowHeadersWidth = 51;
             this.dataGridViewLista.Size = new System.Drawing.Size(803, 305);
@@ -394,7 +381,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Compra";
             this.Text = "Compra";
             this.Load += new System.EventHandler(this.Venta_Load);
@@ -436,7 +423,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labeTotal;
         private System.Windows.Forms.TextBox textBoxDescuento;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label labeLTotalProductos;
         private System.Windows.Forms.Label label9;
     }

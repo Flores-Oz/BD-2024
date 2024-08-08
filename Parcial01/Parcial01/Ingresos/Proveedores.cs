@@ -15,7 +15,7 @@ namespace Parcial01.Ingresos
 {
     public partial class Proveedores : Form
     {
-        string nut;
+        
         public Proveedores()
         {
             InitializeComponent();

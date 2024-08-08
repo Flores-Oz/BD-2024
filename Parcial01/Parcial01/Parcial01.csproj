@@ -71,6 +71,12 @@
     <Compile Include="Busquedas\BProveedor.Designer.cs">
       <DependentUpon>BProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Busquedas\HistorialCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Busquedas\HistorialCompra.Designer.cs">
+      <DependentUpon>HistorialCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Busquedas\BProveedor.resx">
       <DependentUpon>BProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Busquedas\HistorialCompra.resx">
+      <DependentUpon>HistorialCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
