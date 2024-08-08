@@ -12,3 +12,20 @@ C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Parcial01\Parc
 C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Parcial01\Parcial01\obj\Debug\Parcial01.pdb
 C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Parcial01\Parcial01\obj\Debug\Parcial01.Busquedas.BProducto.resources
 C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Parcial01\Parcial01\obj\Debug\Parcial01.Modulos.Compra.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\bin\Debug\Parcial01.exe.config
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\bin\Debug\Parcial01.exe
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\bin\Debug\Parcial01.pdb
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.csproj.AssemblyReference.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Busquedas.BCliente.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Busquedas.BProducto.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Form1.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Modulos.Compra.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Properties.Resources.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.csproj.GenerateResource.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.csproj.CoreCompileInputs.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.exe
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.pdb
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Busquedas.BProveedor.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Ingresos.Proveedores.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Ingresos.Clientes.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Parcial01\Parcial01\obj\Debug\Parcial01.Ingresos.Producto.resources

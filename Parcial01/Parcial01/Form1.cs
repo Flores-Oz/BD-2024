@@ -1,4 +1,5 @@
 ﻿using Parcial01.Busquedas;
+using Parcial01.Ingresos;
 using Parcial01.Modulos;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,27 @@ namespace Parcial01
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BProducto a = new BProducto();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void proveedoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Proveedores a = new Proveedores();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BProveedor a = new BProveedor();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Producto a = new Producto();
             a.MdiParent = this;
             a.Show();
         }

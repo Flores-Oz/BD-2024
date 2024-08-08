@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Ejercicio1P" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=GNARO\SQLEXPRESS;Initial Catalog=Ejercicio1P;Persist Security Info=True;User ID=sa" SettingsObjectName="Parcial01.Properties.Settings" SettingsPropertyName="Ejercicio1PConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Cliente" Member="Cliente">
     <Type Name="Cliente">
       <Column Name="nit_cliente" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -53,6 +52,7 @@
       <Column Name="total_productos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="nit_proveedor" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
       <Association Name="Enca_Venta_Detalle_Venta" Member="Detalle_Venta" ThisKey="codigo_venta" OtherKey="codigo_venta" Type="Detalle_Venta" />
+      <Association Name="Proveedor_Enca_Venta" Member="Proveedor" ThisKey="nit_proveedor" OtherKey="nit_proveedor" Type="Proveedor" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Marca" Member="Marca">
@@ -102,6 +102,15 @@
       <Column Name="dpi_cliente" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Association Name="Enca_Compra_Detalle_Compra" Member="Detalle_Compra" ThisKey="codigo_compra" OtherKey="codigo_compra" Type="Detalle_Compra" />
       <Association Name="Cliente_Enca_Compra" Member="Cliente" ThisKey="dpi_cliente" OtherKey="nit_cliente" Type="Cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Proveedor" Member="Proveedors">
+    <Type Name="Proveedor">
+      <Column Name="nit_proveedor" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_proveedor" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion_proveedor" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono_proveedor" Type="System.String" DbType="NVarChar(12) NOT NULL" CanBeNull="false" />
+      <Association Name="Proveedor_Enca_Venta" Member="Enca_Ventas" ThisKey="nit_proveedor" OtherKey="nit_proveedor" Type="Enca_Venta" />
     </Type>
   </Table>
 </Database>

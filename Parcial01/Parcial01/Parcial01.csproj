@@ -65,6 +65,12 @@
     <Compile Include="Busquedas\BProducto.Designer.cs">
       <DependentUpon>BProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Busquedas\BProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Busquedas\BProveedor.Designer.cs">
+      <DependentUpon>BProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -77,6 +83,12 @@
     </Compile>
     <Compile Include="Ingresos\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingresos\Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingresos\Producto.Designer.cs">
+      <DependentUpon>Producto.cs</DependentUpon>
     </Compile>
     <Compile Include="Ingresos\Proveedores.cs">
       <SubType>Form</SubType>
@@ -98,8 +110,20 @@
     <EmbeddedResource Include="Busquedas\BProducto.resx">
       <DependentUpon>BProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Busquedas\BProveedor.resx">
+      <DependentUpon>BProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingresos\Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingresos\Producto.resx">
+      <DependentUpon>Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingresos\Proveedores.resx">
+      <DependentUpon>Proveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Compra.resx">
       <DependentUpon>Compra.cs</DependentUpon>

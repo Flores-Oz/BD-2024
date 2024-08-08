@@ -40,6 +40,9 @@ namespace Parcial01.Modulos
             textBoxApellido.Text = string.Empty;
             textBoxDireccion.Text = string.Empty;
             textBoxTelefono.Text = string.Empty;
+            labelSubTotal.Text = "0";
+            labeTotal.Text = "0";
+            labeLTotalProductos.Text = "0";
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -53,8 +56,7 @@ namespace Parcial01.Modulos
             CalcularTotalProductos();
             if (double.TryParse(textBoxDescuento.Text, out double descuento) && Double.TryParse(labelSubTotal.Text, out double subTotal))
             {
-                double total = descuento * subTotal;
-                labeTotal.Text = total.ToString();
+                
             }
             using (var transa = new TransactionScope())
             {
@@ -107,6 +109,7 @@ namespace Parcial01.Modulos
                         productosSeleccionados.Clear();
                         dataGridViewLista.DataSource = null;
                         dataGridViewLista.Rows.Clear();
+                        Limpiar();
                     }
                 }
                 catch (Exception ex)
