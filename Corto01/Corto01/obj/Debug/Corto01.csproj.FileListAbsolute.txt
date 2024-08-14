@@ -1,0 +1,12 @@
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\bin\Debug\Corto01.exe.config
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\bin\Debug\Corto01.exe
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\bin\Debug\Corto01.pdb
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.csproj.AssemblyReference.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.csproj.SuggestedBindingRedirects.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.Alumno.resources
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.Menu.resources
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.Properties.Resources.resources
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.csproj.GenerateResource.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.exe
+C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.pdb
