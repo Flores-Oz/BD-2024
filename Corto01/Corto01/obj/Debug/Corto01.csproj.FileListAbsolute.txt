@@ -10,3 +10,15 @@ C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto0
 C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.csproj.CoreCompileInputs.cache
 C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.exe
 C:\Users\Oscar\OneDrive\Documentos\2do Semestre 2024\Base\BD-2024\Corto01\Corto01\obj\Debug\Corto01.pdb
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\bin\Debug\Corto01.exe.config
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\bin\Debug\Corto01.exe
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\bin\Debug\Corto01.pdb
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\obj\Debug\Corto01.csproj.AssemblyReference.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\obj\Debug\Corto01.Alumno.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\obj\Debug\Corto01.Menu.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\obj\Debug\Corto01.Properties.Resources.resources
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\obj\Debug\Corto01.csproj.GenerateResource.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\obj\Debug\Corto01.csproj.CoreCompileInputs.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\obj\Debug\Corto01.exe
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\obj\Debug\Corto01.pdb
+C:\Users\Ozzca\OneDrive\Documentos\BD\Corto01\Corto01\obj\Debug\Corto01.Curso.resources

@@ -59,6 +59,12 @@
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="Curso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Curso.Designer.cs">
+      <DependentUpon>Curso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Alumno.resx">
       <DependentUpon>Alumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Curso.resx">
+      <DependentUpon>Curso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

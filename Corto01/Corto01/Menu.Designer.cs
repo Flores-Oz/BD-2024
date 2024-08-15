@@ -28,36 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.alumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.carneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // linkLabel1
+            // menuStrip1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(155, 312);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(55, 13);
-            this.linkLabel1.TabIndex = 0;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alumnoToolStripMenuItem,
+            this.carneToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1105, 30);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // alumnoToolStripMenuItem
+            // 
+            this.alumnoToolStripMenuItem.Name = "alumnoToolStripMenuItem";
+            this.alumnoToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
+            this.alumnoToolStripMenuItem.Text = "Alumno";
+            this.alumnoToolStripMenuItem.Click += new System.EventHandler(this.alumnoToolStripMenuItem_Click);
+            // 
+            // carneToolStripMenuItem
+            // 
+            this.carneToolStripMenuItem.Name = "carneToolStripMenuItem";
+            this.carneToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
+            this.carneToolStripMenuItem.Text = "Cursos";
+            this.carneToolStripMenuItem.Click += new System.EventHandler(this.carneToolStripMenuItem_Click);
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 496);
-            this.Controls.Add(this.linkLabel1);
+            this.ClientSize = new System.Drawing.Size(1105, 610);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Menu";
             this.Text = "Form1";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem alumnoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem carneToolStripMenuItem;
     }
 }
 
