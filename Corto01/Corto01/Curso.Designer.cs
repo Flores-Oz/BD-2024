@@ -70,6 +70,7 @@
             this.comboBoxCurso.Name = "comboBoxCurso";
             this.comboBoxCurso.Size = new System.Drawing.Size(121, 24);
             this.comboBoxCurso.TabIndex = 2;
+            this.comboBoxCurso.SelectedIndexChanged += new System.EventHandler(this.comboBoxCurso_SelectedIndexChanged);
             // 
             // dataGridView1
             // 

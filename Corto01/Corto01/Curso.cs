@@ -42,5 +42,18 @@ namespace Corto01
             comboBoxSemestre.DisplayMember = "Nombre_Semestre";
             comboBoxSemestre.ValueMember = "Id_Semestre";
         }
+
+        private void comboBoxCurso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int cod = Convert.ToInt16(comboBoxCurso.SelectedValue);
+                var signal = from sm in milinq.Asigna_Curso
+                           where Convert.ToInt16(sm.Id_Curso) == cod
+                           select sm;
+                dataGridView1.DataSource = signal.ToList();
+            }
+            catch (Exception ex) { }
+        }
     }
 }
