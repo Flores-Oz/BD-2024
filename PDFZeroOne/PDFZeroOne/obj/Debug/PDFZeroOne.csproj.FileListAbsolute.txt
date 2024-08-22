@@ -1,0 +1,2 @@
+C:\Users\Ozzca\OneDrive\Documentos\BD\PDFZeroOne\PDFZeroOne\obj\Debug\PDFZeroOne.csproj.AssemblyReference.cache
+C:\Users\Ozzca\OneDrive\Documentos\BD\PDFZeroOne\PDFZeroOne\obj\Debug\PDFZeroOne.csproj.CoreCompileInputs.cache
