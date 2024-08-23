@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Corto1BD23" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Alumno" Member="Alumnos">
+    <Type Name="Alumno">
+      <Column Name="Carne" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Apellido1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fecha_Nac" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Celular" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="estado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
