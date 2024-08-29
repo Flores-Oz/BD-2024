@@ -1,0 +1,6 @@
+Modulo para Ingresar Profesores
+Al asignar un curso a un profesor se debe de revisar que este no este ya asignado
+Modulo para Ingresar Alumnos
+En la asignación se debe de revisar que si ya hay un Alumno que se el Delegado
+
+Tabla Asignación debe de tener un Trigger
