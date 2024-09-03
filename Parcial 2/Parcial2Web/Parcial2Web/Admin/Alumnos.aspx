@@ -23,7 +23,7 @@
     <div class="container col-xl-10 col-xxl-8 px-4">
         <div class="row align-items-center g-lg-5 py-1">
             <div class="col-lg-12 text-center text-lg-start">
-                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-6">Ingreso de Cursos</h1>
+                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-6">Ingreso de Alumnos</h1>
             </div>
         </div>
 
@@ -104,7 +104,7 @@
                 <div class="modal-body">
                     <!---->
                     <div class="d-flex justify-content-center align-items-center">
-                    <asp:TextBox ID="TextBoxBuscarAlumno" placeholder="Buscar Alumno por Nombre/Apellido/Codigo" OnTextChanged="TextBoxBuscarAlumno_TextChanged" CssClass="form" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxBuscarAlumno" placeholder="Buscar Alumno por Nombre/Apellido/Codigo" OnTextChanged="TextBoxBuscarAlumno_TextChanged" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                        <div style="overflow-x: auto;">
                      <asp:GridView ID="GridViewAlumnos" runat="server" CssClass="table table-striped table-bordered table-responsive"

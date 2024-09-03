@@ -45,13 +45,14 @@ namespace Parcial2Web.Admin
             string filtro = TextBoxBuscarAlumno.Text;
             using (var milinq = new DB.DataClasses1DataContext(Conexion.CADENA))
             {
-                var clientes = from cliente in LINQ.Alumno
-                               where cliente.codigo_alumno.ToLower().Contains(filtro.ToLower()) ||
-                                     cliente.nombres.ToLower().Contains(filtro.ToLower()) ||
-                                     cliente.apellidos.ToLower().Contains(filtro.ToLower())
+                var clientes = from cliente in LINQ.VistaAlumno
+                               where cliente.Codigo.ToLower().Contains(filtro.ToLower()) ||
+                                     cliente.Nombres.ToLower().Contains(filtro.ToLower()) ||
+                                     cliente.Apellidos.ToLower().Contains(filtro.ToLower())
                                select cliente;
 
                 GridViewAlumnos.DataSource = clientes.ToList();
+                GridViewAlumnos.DataBind();
             }
         }
 
@@ -103,7 +104,7 @@ namespace Parcial2Web.Admin
         {
             if (TextBoxCodAlumno.Text != "" && TextBoxNomAlum.Text != "" && TextBoxApeAlum.Text != ""
                 && TextBoxFechaNac.Text != "" && TextBoxTelefono.Text != "" && TextBoxPass.Text != ""
-                && TextBoxDireccion.Text != "" && TextBoxUsuario.Text != "")
+                && TextBoxDireccion.Text != "" && TextBoxUsuario.Text != ""  && DropDownListMuni.Text != "" && DropDownListDepa.Text != "")
             {
                 using (var context = new DB.DataClasses1DataContext(Conexion.CADENA))
                 {

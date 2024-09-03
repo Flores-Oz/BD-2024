@@ -151,6 +151,14 @@ namespace Parcial2Web.DB
 				return this.GetTable<VistaAlumno>();
 			}
 		}
+		
+		public System.Data.Linq.Table<VistaProfesores> VistaProfesores
+		{
+			get
+			{
+				return this.GetTable<VistaProfesores>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Alumno")]
@@ -2279,6 +2287,231 @@ namespace Parcial2Web.DB
 				if ((this._Municipio != value))
 				{
 					this._Municipio = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VistaProfesores")]
+	public partial class VistaProfesores
+	{
+		
+		private string _DPI;
+		
+		private string _Nombres;
+		
+		private string _Apellidos;
+		
+		private string _Direccion;
+		
+		private string _Telefono;
+		
+		private bool _Estado;
+		
+		private string _Usuario;
+		
+		private string _Contraseña;
+		
+		private string _Codigo_Municipio;
+		
+		private string _Municipio;
+		
+		private int _Codigo_Departamento;
+		
+		private string _Departamento;
+		
+		public VistaProfesores()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPI", DbType="NVarChar(13) NOT NULL", CanBeNull=false)]
+		public string DPI
+		{
+			get
+			{
+				return this._DPI;
+			}
+			set
+			{
+				if ((this._DPI != value))
+				{
+					this._DPI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombres", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Nombres
+		{
+			get
+			{
+				return this._Nombres;
+			}
+			set
+			{
+				if ((this._Nombres != value))
+				{
+					this._Nombres = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellidos", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellidos
+		{
+			get
+			{
+				return this._Apellidos;
+			}
+			set
+			{
+				if ((this._Apellidos != value))
+				{
+					this._Apellidos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="NVarChar(12) NOT NULL", CanBeNull=false)]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="Bit NOT NULL")]
+		public bool Estado
+		{
+			get
+			{
+				return this._Estado;
+			}
+			set
+			{
+				if ((this._Estado != value))
+				{
+					this._Estado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				if ((this._Usuario != value))
+				{
+					this._Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Contraseña
+		{
+			get
+			{
+				return this._Contraseña;
+			}
+			set
+			{
+				if ((this._Contraseña != value))
+				{
+					this._Contraseña = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codigo_Municipio", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Codigo_Municipio
+		{
+			get
+			{
+				return this._Codigo_Municipio;
+			}
+			set
+			{
+				if ((this._Codigo_Municipio != value))
+				{
+					this._Codigo_Municipio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Municipio", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Municipio
+		{
+			get
+			{
+				return this._Municipio;
+			}
+			set
+			{
+				if ((this._Municipio != value))
+				{
+					this._Municipio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Codigo Departamento]", Storage="_Codigo_Departamento", DbType="Int NOT NULL")]
+		public int Codigo_Departamento
+		{
+			get
+			{
+				return this._Codigo_Departamento;
+			}
+			set
+			{
+				if ((this._Codigo_Departamento != value))
+				{
+					this._Codigo_Departamento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departamento", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Departamento
+		{
+			get
+			{
+				return this._Departamento;
+			}
+			set
+			{
+				if ((this._Departamento != value))
+				{
+					this._Departamento = value;
 				}
 			}
 		}
