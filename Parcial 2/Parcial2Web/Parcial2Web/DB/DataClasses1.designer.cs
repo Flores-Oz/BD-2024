@@ -159,6 +159,14 @@ namespace Parcial2Web.DB
 				return this.GetTable<VistaProfesores>();
 			}
 		}
+		
+		public System.Data.Linq.Table<VistaAsignaProfe> VistaAsignaProfe
+		{
+			get
+			{
+				return this.GetTable<VistaAsignaProfe>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Alumno")]
@@ -2512,6 +2520,159 @@ namespace Parcial2Web.DB
 				if ((this._Departamento != value))
 				{
 					this._Departamento = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VistaAsignaProfe")]
+	public partial class VistaAsignaProfe
+	{
+		
+		private int _codigo_prof_curso;
+		
+		private System.DateTime _fecha_asignacion;
+		
+		private int _codigo_ciclo;
+		
+		private string _nombre_ciclo;
+		
+		private string _dpi_profesor;
+		
+		private string _Profesor;
+		
+		private string _codigo_curso;
+		
+		private string _nombre_curso;
+		
+		public VistaAsignaProfe()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_prof_curso", DbType="Int NOT NULL")]
+		public int codigo_prof_curso
+		{
+			get
+			{
+				return this._codigo_prof_curso;
+			}
+			set
+			{
+				if ((this._codigo_prof_curso != value))
+				{
+					this._codigo_prof_curso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_asignacion", DbType="SmallDateTime NOT NULL")]
+		public System.DateTime fecha_asignacion
+		{
+			get
+			{
+				return this._fecha_asignacion;
+			}
+			set
+			{
+				if ((this._fecha_asignacion != value))
+				{
+					this._fecha_asignacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_ciclo", DbType="Int NOT NULL")]
+		public int codigo_ciclo
+		{
+			get
+			{
+				return this._codigo_ciclo;
+			}
+			set
+			{
+				if ((this._codigo_ciclo != value))
+				{
+					this._codigo_ciclo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_ciclo", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string nombre_ciclo
+		{
+			get
+			{
+				return this._nombre_ciclo;
+			}
+			set
+			{
+				if ((this._nombre_ciclo != value))
+				{
+					this._nombre_ciclo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dpi_profesor", DbType="NVarChar(13) NOT NULL", CanBeNull=false)]
+		public string dpi_profesor
+		{
+			get
+			{
+				return this._dpi_profesor;
+			}
+			set
+			{
+				if ((this._dpi_profesor != value))
+				{
+					this._dpi_profesor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profesor", DbType="NVarChar(151) NOT NULL", CanBeNull=false)]
+		public string Profesor
+		{
+			get
+			{
+				return this._Profesor;
+			}
+			set
+			{
+				if ((this._Profesor != value))
+				{
+					this._Profesor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_curso", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
+		public string codigo_curso
+		{
+			get
+			{
+				return this._codigo_curso;
+			}
+			set
+			{
+				if ((this._codigo_curso != value))
+				{
+					this._codigo_curso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_curso", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string nombre_curso
+		{
+			get
+			{
+				return this._nombre_curso;
+			}
+			set
+			{
+				if ((this._nombre_curso != value))
+				{
+					this._nombre_curso = value;
 				}
 			}
 		}

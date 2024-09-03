@@ -52,7 +52,7 @@
         <classShapeMoniker Id="0bab8b19-e1af-4492-a445-a87cb4ba6626" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.625 : 5.88064697265625); (5.25 : 5.88064697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.625 : 5.88064697265625); (5.25 : 5.88064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/Departamento/Departamento_Municipio" />
       <nodes>
         <classShapeMoniker Id="70a871cf-fa93-465b-9a0b-c66cafd6591a" />
@@ -78,7 +78,7 @@
         <elementListCompartment Id="8363ac13-fd98-4905-a63e-84787ea591da" absoluteBounds="8.39, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(9.53125 : 2.52089680989583); (9.53125 : 4.60500325520833); (2.625 : 4.60500325520833)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(9.53125 : 2.52089680989583); (9.53125 : 4.60500325520833); (9.13020833333333 : 4.60500325520833 : JumpStart); (8.96354166666667 : 4.60500325520833 : JumpEnd); (2.625 : 4.60500325520833)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/Profesor_Curso/Profesor_Curso_Asignacion" />
       <nodes>
         <classShapeMoniker Id="ba47d9aa-a19e-42b6-8c24-448e4c7c45fe" />
@@ -116,6 +116,12 @@
       <DataClassMoniker Name="/DataClasses1DataContext/VistaProfesores" />
       <nestedChildShapes>
         <elementListCompartment Id="2f2b8357-d6ea-4f0a-9fbb-8098228678b2" absoluteBounds="5.015, 7.0850000000000009, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="05de3271-5c46-4d46-89c1-f3012f89c96b" absoluteBounds="2.875, 7.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DataClasses1DataContext/VistaAsignaProfe" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47ab13ae-c715-4624-826d-7fcafb84ebb1" absoluteBounds="2.89, 7.5850000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

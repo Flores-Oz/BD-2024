@@ -16,9 +16,6 @@
                 Nos alegra contar con su presencia. Desde este panel, tiene acceso completo para gestionar y optimizar todos los aspectos de la plataforma. 
                 Si necesita asistencia o tiene alguna consulta, estamos aquí para ayudarle. ¡Esperamos que tenga una experiencia productiva y eficiente!
             </p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <asp:Button ID="ButtonLogin" CssClass="btn btn-color px-5 mb-5 w-100" runat="server" Text="Ingresar" />
-            </div>
         </div>
     </div>
 </asp:Content>

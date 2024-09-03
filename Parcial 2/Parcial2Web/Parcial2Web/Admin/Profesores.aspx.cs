@@ -37,6 +37,7 @@ namespace Parcial2Web.Admin
                 DropDownListCiclo.DataBind();
                 ///
                 var Profes = from dep in LINQ.Profesor
+                             where dep.estado_profesor == true
                             select new {
                                 Codigo = dep.dpi_profesor,
                                 Nombre = dep.nombres_profesor+" "+dep.apellidos_profesor
@@ -46,6 +47,7 @@ namespace Parcial2Web.Admin
                 DropDownListDPI.DataValueField = "Codigo";
                 DropDownListDPI.DataBind();
                 CargarProfesores();
+                CargarAsignProfe();
             }
         }
 
@@ -67,6 +69,14 @@ namespace Parcial2Web.Admin
                           select prof;
             GridViewProfesores.DataSource = profes;
             GridViewProfesores.DataBind();
+        }
+
+        public void CargarAsignProfe()
+        {
+            var profes = from prof in LINQ.VistaAsignaProfe
+                         select prof;
+            GridView1.DataSource = profes;
+            GridView1.DataBind();
         }
 
         protected void DropDownListDepa_SelectedIndexChanged(object sender, EventArgs e)
@@ -183,6 +193,11 @@ namespace Parcial2Web.Admin
                     }
                 }
             }
+            else
+            {
+                // Mostrar mensaje de error si los campos están vacíos
+                ClientScript.RegisterStartupScript(this.GetType(), "showMessageError", "showMessageError();", true);
+            }
 
         }
 
@@ -239,14 +254,55 @@ namespace Parcial2Web.Admin
             CargarProfesores();
         }
 
-        protected void ButtonEditaAsig_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void ButtonAsignaProf_Click(object sender, EventArgs e)
         {
+                using (var context = new DB.DataClasses1DataContext(Conexion.CADENA))
+                {
+                    // Verificar si el codigo_curso ya existe en la base de datos
+                    var Curso = context.Profesor_Curso
+                                               .FirstOrDefault(c => c.codigo_curso == DropDownListCurso.SelectedValue && c.dpi_profesor == DropDownListDPI.SelectedValue);
 
+                    if (Curso == null) // Si no existe, se puede insertar el nuevo 
+                    {
+                        DB.Profesor_Curso prof = new DB.Profesor_Curso
+                        {
+                            fecha_asignacion = Convert.ToDateTime(TextBoxFechaAsign.Text),
+                            codigo_ciclo = Convert.ToInt16(DropDownListCiclo.SelectedValue),
+                            dpi_profesor = DropDownListDPI.SelectedValue,
+                            codigo_curso = DropDownListCurso.SelectedValue
+                        };
+
+                        context.Profesor_Curso.InsertOnSubmit(prof);
+                        context.SubmitChanges();
+
+                        // Limpiar los campos de texto
+                        CargarAsignProfe();
+
+                        // Mostrar mensaje de éxito
+                        ClientScript.RegisterStartupScript(this.GetType(), "showMessageProfAsign", "showMessageProfAsign();", true);
+                    }
+                    else
+                    {
+                        // Mostrar mensaje de error si el Alumno ya existe
+                        ClientScript.RegisterStartupScript(this.GetType(), "showMessageErrorCursoExistente", "showMessageErrorCursoExistente();", true);
+                    }
+                }
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = TextBox1.Text;
+            using (var milinq = new DB.DataClasses1DataContext(Conexion.CADENA))
+            {
+                var profes = from cliente in LINQ.VistaAsignaProfe
+                             where cliente.Profesor.ToLower().Contains(filtro.ToLower()) ||
+                                   cliente.nombre_curso.ToLower().Contains(filtro.ToLower()) ||
+                                   cliente.nombre_ciclo.ToLower().Contains(filtro.ToLower())
+                             select cliente;
+
+                GridView1.DataSource = profes.ToList();
+                GridView1.DataBind();
+            }
         }
     }
 }

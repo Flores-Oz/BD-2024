@@ -93,7 +93,7 @@
     <div class="container col-xl-10 col-xxl-8 px-4">
         <div class="row align-items-center g-lg-5 py-1">
             <div class="col-lg-12 text-center text-lg-start">
-                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-6">Asignacion de Profesores</h1>
+                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-6"><asp:HyperLink ID="HyperLink2" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" runat="server">Asignacion Profesores</asp:HyperLink></h1>
             </div>
         </div>
 
@@ -126,7 +126,6 @@
                 <div class="col">
                     <div class="d-grid gap-2">
                         <asp:Button ID="ButtonAsignaProf" OnClick="ButtonAsignaProf_Click" CssClass="btn btn-color " runat="server" Text="Asignar Profesor" />
-                        <asp:Button ID="ButtonEditaAsig" OnClick="ButtonEditaAsig_Click" CssClass="btn btn-color" runat="server" Text="Modificar Asignacion" />
                     </div>
                 </div>
             </div>
@@ -163,6 +162,36 @@
             </div>
         </div>
     </div>
+    <!---->
+        <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content color1">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel1">Profesores Asignados</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!---->
+                    <div class="d-flex justify-content-center align-items-center">
+                        <asp:TextBox ID="TextBox1" placeholder="Buscar Asignacion por Profesor/Ciclo/Curso" OnTextChanged="TextBox1_TextChanged" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-bordered table-responsive"
+                            DataKeyNames="codigo_prof_curso" AutoGenerateSelectButton="true"
+                            AllowPaging="True" PageSize="3" OnPageIndexChanging="GridViewProfesores_PageIndexChanging">
+                            <HeaderStyle CssClass="table-dark" />
+                            <RowStyle CssClass="align-middle" />
+                            <AlternatingRowStyle CssClass="table-light" />
+                        </asp:GridView>
+                    </div>
+                    <!---->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--Modales-->
     <div id="messageBoxCicloG" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
         Profesor Ingresado Correctamente
@@ -179,7 +208,19 @@
     <div id="messageBoxAlumNoExistente" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
         Profesor No Existente
     </div>
+      <div id="messageBoxProfeAsign" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
+        Profesor Asignado Correctamente
+    </div>
     <!--Scripts-->
+     <script type="text/javascript">
+         function showMessageProfAsign() {
+             var messageBox = document.getElementById("messageBoxProfeAsign");
+             messageBox.style.display = "block";
+             setTimeout(function () {
+                 messageBox.style.display = "none";
+             }, 3000); // Ocultar el mensaje después de 3 segundos
+         }
+     </script>
     <script type="text/javascript">
         function showMessageCursoG() {
             var messageBox = document.getElementById("messageBoxCicloG");
