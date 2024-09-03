@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parcial2_BD" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Alumno" Member="Alumno">
+    <Type Name="Alumno">
+      <Column Name="codigo_alumno" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombres" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidos" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_nac" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.String" DbType="NVarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="usuario_alumno" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="contrasenia" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_municipio" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Alumno_Asignacion" Member="Asignacion" ThisKey="codigo_alumno" OtherKey="codigo_alumno" Type="Asignacion" />
+      <Association Name="Municipio_Alumno" Member="Municipio" ThisKey="cod_municipio" OtherKey="cod_municipio" Type="Municipio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Asignacion" Member="Asignacion">
+    <Type Name="Asignacion">
+      <Column Name="codigo_asignacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha_asignacion" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="zona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="final" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="total" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="resultado" Type="System.String" DbType="NVarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_delegado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_alumno" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_prof_curso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Alumno_Asignacion" Member="Alumno" ThisKey="codigo_alumno" OtherKey="codigo_alumno" Type="Alumno" IsForeignKey="true" />
+      <Association Name="Profesor_Curso_Asignacion" Member="Profesor_Curso" ThisKey="codigo_prof_curso" OtherKey="codigo_prof_curso" Type="Profesor_Curso" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ciclo" Member="Ciclo">
+    <Type Name="Ciclo">
+      <Column Name="codigo_ciclo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_ciclo" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_ciclo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Ciclo_Profesor_Curso" Member="Profesor_Curso" ThisKey="codigo_ciclo" OtherKey="codigo_ciclo" Type="Profesor_Curso" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Curso" Member="Curso">
+    <Type Name="Curso">
+      <Column Name="codigo_curso" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_curso" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Curso_Profesor_Curso" Member="Profesor_Curso" ThisKey="codigo_curso" OtherKey="codigo_curso" Type="Profesor_Curso" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Departamento" Member="Departamento">
+    <Type Name="Departamento">
+      <Column Name="cod_depto" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_depto" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Departamento_Municipio" Member="Municipio" ThisKey="cod_depto" OtherKey="cod_depto" Type="Municipio" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Municipio" Member="Municipio">
+    <Type Name="Municipio">
+      <Column Name="cod_municipio" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre_municipio" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_depto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Municipio_Alumno" Member="Alumno" ThisKey="cod_municipio" OtherKey="cod_municipio" Type="Alumno" />
+      <Association Name="Municipio_Profesor" Member="Profesor" ThisKey="cod_municipio" OtherKey="cod_municipio" Type="Profesor" />
+      <Association Name="Departamento_Municipio" Member="Departamento" ThisKey="cod_depto" OtherKey="cod_depto" Type="Departamento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Profesor" Member="Profesor">
+    <Type Name="Profesor">
+      <Column Name="dpi_profesor" Type="System.String" DbType="NVarChar(13) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombres_profesor" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidos_profesor" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion_profesor" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono_profesor" Type="System.String" DbType="NVarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="estado_profesor" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="usuario_profesor" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="contrasenia" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_municipio" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Profesor_Profesor_Curso" Member="Profesor_Curso" ThisKey="dpi_profesor" OtherKey="dpi_profesor" Type="Profesor_Curso" />
+      <Association Name="Municipio_Profesor" Member="Municipio" ThisKey="cod_municipio" OtherKey="cod_municipio" Type="Municipio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Profesor_Curso" Member="Profesor_Curso">
+    <Type Name="Profesor_Curso">
+      <Column Name="codigo_prof_curso" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha_asignacion" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_ciclo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dpi_profesor" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_curso" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="Profesor_Curso_Asignacion" Member="Asignacion" ThisKey="codigo_prof_curso" OtherKey="codigo_prof_curso" Type="Asignacion" />
+      <Association Name="Curso_Profesor_Curso" Member="Curso" ThisKey="codigo_curso" OtherKey="codigo_curso" Type="Curso" IsForeignKey="true" />
+      <Association Name="Ciclo_Profesor_Curso" Member="Ciclo" ThisKey="codigo_ciclo" OtherKey="codigo_ciclo" Type="Ciclo" IsForeignKey="true" />
+      <Association Name="Profesor_Profesor_Curso" Member="Profesor" ThisKey="dpi_profesor" OtherKey="dpi_profesor" Type="Profesor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VistaAlumno" Member="VistaAlumno">
+    <Type Name="VistaAlumno">
+      <Column Name="Codigo" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellidos" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Fecha Nacimiento]" Member="Fecha_Nacimiento" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Correo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="NVarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Contraseña" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[Codigo Departamento]" Member="Codigo_Departamento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Departamento" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Codigo Municipio]" Member="Codigo_Municipio" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Municipio" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

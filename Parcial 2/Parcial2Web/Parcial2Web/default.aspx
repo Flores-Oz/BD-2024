@@ -4,17 +4,75 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <style>
+        .btn-color {
+            background-color: #0e1c36;
+            color: #fff;
+        }
+
+        .profile-image-pic {
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+        }
+
+        body {
+            background: #7F7FD5; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .cardbody-color {
+            background-color: #ebf2fa;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+            <!---->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <h2 class="text-center text-dark mt-5">Bienvenido al Sistema</h2>
+                        <div class="text-center mb-5 text-dark">Ingresa tus Creedenciales</div>
+                        <div class="card my-5">
 
+                            <div class="card-body cardbody-color p-lg-5">
+
+                                <div class="text-center">
+                                    <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                                        alt="profile" />
+                                </div>
+
+                                <div class="mb-3">
+                                    <asp:TextBox ID="TextBoxUser" CssClass="form-control" placeholder="Usuario" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="mb-3">
+                                    <asp:TextBox ID="TextBoxPass" placeholder="Contraseña" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="text-center">
+                                    <asp:Button ID="ButtonLogin" CssClass="btn btn-color px-5 mb-5 w-100" runat="server" Text="Ingresar" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!---->
         </div>
     </form>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
