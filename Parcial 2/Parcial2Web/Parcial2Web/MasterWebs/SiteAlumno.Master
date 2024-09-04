@@ -1,10 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteAdmin.master.cs" Inherits="Parcial2Web.MasterWebs.SiteAdmin" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteAlumno.master.cs" Inherits="Parcial2Web.MasterWebs.SiteAlumno" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,8 +22,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <!---->
-
+          <!---->
             <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
@@ -36,12 +35,12 @@
                         </div>
                         <div class="offcanvas-body">
                             <ul class="navbar-nav flex-grow-1 justify-content-between">
-                                <li class="nav-item"><a class="nav-link" href="../Admin/Inicio.aspx">Inicio</a></li>
-                                <li class="nav-item"><a class="nav-link" href="../Admin/Alumnos.aspx">Alumnos</a></li>
-                                <li class="nav-item"><a class="nav-link" href="../Admin/Profesores.aspx">Profesores</a></li>
-                                <li class="nav-item"><a class="nav-link" href="../Admin/Varios.aspx">Varios</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../Alumno/Inicio.aspx">Inicio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../Alumno/Alumno.aspx">Asignacion</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">
                                     <asp:Label ID="Label1" runat="server" Text=""></asp:Label></a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">
+                                    <asp:Label ID="Label2" runat="server" Text=""></asp:Label></a></li>
                                 <li class="nav-item">
                                     <asp:Button ID="ButtonLogOut" OnClick="ButtonLogOut_Click" CssClass="nav-link" runat="server" Text="Cerrar Sesion" /></li>
                             </ul>
@@ -53,7 +52,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </form>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

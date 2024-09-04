@@ -72,6 +72,8 @@
     <Content Include="Admin\Inicio.aspx" />
     <Content Include="Admin\Profesores.aspx" />
     <Content Include="Admin\Varios.aspx" />
+    <Content Include="Alumno\Alumno.aspx" />
+    <Content Include="Alumno\Inicio.aspx" />
     <Content Include="default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -104,6 +106,20 @@
     <Compile Include="Admin\Varios.aspx.designer.cs">
       <DependentUpon>Varios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Alumno\Alumno.aspx.cs">
+      <DependentUpon>Alumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumno\Alumno.aspx.designer.cs">
+      <DependentUpon>Alumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alumno\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumno\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="DB\DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
@@ -124,6 +140,13 @@
     <Compile Include="MasterWebs\SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
     </Compile>
+    <Compile Include="MasterWebs\SiteAlumno.Master.cs">
+      <DependentUpon>SiteAlumno.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterWebs\SiteAlumno.Master.designer.cs">
+      <DependentUpon>SiteAlumno.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +159,7 @@
     <None Include="DB\DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+    <Content Include="MasterWebs\SiteAlumno.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -145,7 +169,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Alumno\" />
     <Folder Include="Profesor\" />
   </ItemGroup>
   <ItemGroup>
