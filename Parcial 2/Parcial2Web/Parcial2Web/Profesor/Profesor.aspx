@@ -32,10 +32,10 @@
                   <div class="container mt-5 p-4 p-md-5 rounded-3 col-md-12 mx-auto color1">
             <div class="row">
               <div class="col">
-                 <asp:TextBox ID="TextBox2" placeholder="Buscar Asignacion por Profesor/Ciclo/Curso"  AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
+                 <asp:TextBox ID="TextBox2" placeholder="Buscar Asignacion por Curso" OnTextChanged="TextBox2_TextChanged"  AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
                   <div style="overflow-x: auto;">
                      <asp:GridView ID="GridViewCursosDisponibles" runat="server" CssClass="table table-striped table-bordered table-responsive"
-                            DataKeyNames="codigo_prof_curso" AutoGenerateSelectButton="true" 
+                            DataKeyNames="codigo_prof_curso" 
                             AllowPaging="True" PageSize="3" OnPageIndexChanging="GridViewCursosDisponibles_PageIndexChanging">
                             <HeaderStyle CssClass="table-dark" />
                             <RowStyle CssClass="align-middle" />
@@ -62,9 +62,13 @@
             <div class="row">
                 <!-- Izquierda: Grupos de botones o inputs -->
                 <div class="col-md-6">
+                     <div class="mb-3">
+                        <asp:Label ID="Label7" CssClass="fs-3 fw-bolder  text-white" runat="server" Text="Codigo Asignacion"></asp:Label>
+                        <asp:TextBox ID="TextBoxCodAsig" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
                     <div class="mb-3">
                         <asp:Label ID="Label1" CssClass="fs-3 fw-bolder  text-white" runat="server" Text="Fecha Asignacion"></asp:Label>
-                        <asp:TextBox ID="TextBoxFechaAsign" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBoxFechaAsign" Enabled="false"  TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                     <div class="mb-3">
                         <asp:Label ID="Label5" CssClass="fs-3 fw-bolder  text-white" runat="server" Text="Final"></asp:Label>
@@ -76,7 +80,7 @@
                     </div>
                       <div class="mb-3">
                         <asp:Label ID="Label4" CssClass="fs-3 fw-bolder  text-white" runat="server" Text="Codigo Alumno"></asp:Label>
-                        <asp:TextBox ID="TextBoxCodAlum" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBoxCodAlum" Enabled="false"  CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
@@ -96,7 +100,7 @@
                     </div>
                       <div class="mb-3">
                         <asp:Label ID="Label6" CssClass="fs-3 fw-bolder  text-white" runat="server" Text="Codigo Profesor del Curso"></asp:Label>
-                        <asp:TextBox ID="TextBoxCodProfCurso" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBoxCodProfCurso" Enabled="false"  CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
                  <div class="text-center">
@@ -117,11 +121,10 @@
                 <div class="modal-body">
                     <!---->
                     <div class="d-flex justify-content-center align-items-center">
-                        <asp:TextBox ID="TextBox1" placeholder="Buscar Asignacion por Profesor/Ciclo/Curso"  CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                     <div style="overflow-x: auto;">
                         <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-bordered table-responsive"
-                            DataKeyNames="codigo_prof_curso" AutoGenerateSelectButton="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+                            DataKeyNames="codigo_asignacion" AutoGenerateSelectButton="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
                             AllowPaging="True" PageSize="3" OnPageIndexChanging="GridView1_PageIndexChanging" >
                             <HeaderStyle CssClass="table-dark" />
                             <RowStyle CssClass="align-middle" />
@@ -138,27 +141,18 @@
     </div>
     <!--Modales-->
     <div id="messageBoxCicloG" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Profesor Ingresado Correctamente
+        Asignacion Actualizada Correctamente
     </div>
     <div id="messageBoxError" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #eb0909; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Error: Campos Vacios
+        Asignación no encontrada
     </div>
     <div id="messageBoxErrorC" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #eb0909; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Error: Campos Repetidos
-    </div>
-    <div id="messageBoxEditarAlum" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Profesor Modificado Correctamente
-    </div>
-    <div id="messageBoxAlumNoExistente" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Profesor No Existente
-    </div>
-      <div id="messageBoxProfeAsign" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Profesor Asignado Correctamente
+        Código de asignación inválido
     </div>
     <!--Scripts-->
      <script type="text/javascript">
          function showMessageProfAsign() {
-             var messageBox = document.getElementById("messageBoxProfeAsign");
+             var messageBox = document.getElementById("messageBoxCicloG");
              messageBox.style.display = "block";
              setTimeout(function () {
                  messageBox.style.display = "none";
@@ -167,15 +161,6 @@
      </script>
     <script type="text/javascript">
         function showMessageCursoG() {
-            var messageBox = document.getElementById("messageBoxCicloG");
-            messageBox.style.display = "block";
-            setTimeout(function () {
-                messageBox.style.display = "none";
-            }, 3000); // Ocultar el mensaje después de 3 segundos
-        }
-    </script>
-    <script type="text/javascript">
-        function showMessageError() {
             var messageBox = document.getElementById("messageBoxError");
             messageBox.style.display = "block";
             setTimeout(function () {
@@ -184,26 +169,8 @@
         }
     </script>
     <script type="text/javascript">
-        function showMessageErrorCursoExistente() {
+        function showMessageError() {
             var messageBox = document.getElementById("messageBoxErrorC");
-            messageBox.style.display = "block";
-            setTimeout(function () {
-                messageBox.style.display = "none";
-            }, 3000); // Ocultar el mensaje después de 3 segundos
-        }
-    </script>
-    <script type="text/javascript">
-        function showMessageCursoEditado() {
-            var messageBox = document.getElementById("messageBoxEditarAlum");
-            messageBox.style.display = "block";
-            setTimeout(function () {
-                messageBox.style.display = "none";
-            }, 3000); // Ocultar el mensaje después de 3 segundos
-        }
-    </script>
-    <script type="text/javascript">
-        function showMessageErrorAlumnoNoExistente() {
-            var messageBox = document.getElementById("messageBoxAlumNoExistente");
             messageBox.style.display = "block";
             setTimeout(function () {
                 messageBox.style.display = "none";

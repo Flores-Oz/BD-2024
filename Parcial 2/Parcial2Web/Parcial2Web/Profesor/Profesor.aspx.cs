@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,7 +20,21 @@ namespace Parcial2Web.Profesor
                 CargarAsigna();
             }
         }
-        
+        protected void LimpiarControles()
+        {
+            // Limpiar todos los TextBox
+            TextBoxCodAsig.Text = string.Empty;
+            TextBoxFinal.Text = string.Empty;
+            TextBoxResultado.Text = string.Empty;
+            TextBoxCodAlum.Text = string.Empty;
+            TextBoxZona.Text = string.Empty;
+            TextBox3.Text = string.Empty;
+            TextBoxCodProfCurso.Text = string.Empty;
+
+            // Desmarcar el CheckBox
+            CheckBoxDelegado.Checked = false;
+        }
+
         public void CargarProfesorCurso()
         {
             string cod = Session["DPI"].ToString();
@@ -61,7 +76,41 @@ namespace Parcial2Web.Profesor
 
         protected void ButtonLogin_Click(object sender, EventArgs e)
         {
+            int codigoAsignacion;
+            if (int.TryParse(TextBoxCodAsig.Text, out codigoAsignacion))
+            {
+                using (var context = new DB.DataClasses1DataContext(Conexion.CADENA))
+                {
+                    // Obtener la asignación existente por su clave primaria
+                    var asignacion = context.Asignacion.FirstOrDefault(a => a.codigo_asignacion == codigoAsignacion);
 
+                    if (asignacion != null)
+                    {
+                        // Actualizar los valores de la asignación con los valores de los TextBox
+                        asignacion.final = Convert.ToInt16(TextBoxFinal.Text);
+                        asignacion.resultado = TextBoxResultado.Text;
+                        asignacion.zona = Convert.ToInt16(TextBoxZona.Text);
+                        asignacion.total = Convert.ToInt16(TextBox3.Text);
+                        asignacion.estado_delegado = CheckBoxDelegado.Checked;
+
+                        // Guardar los cambios en la base de datos
+                        context.SubmitChanges();
+                        LimpiarControles();
+                        // Mostrar un mensaje de éxito
+                        ClientScript.RegisterStartupScript(this.GetType(), "showMessageProfAsign", "showMessageProfAsign();", true);
+                    }
+                    else
+                    {
+                        // Mostrar un mensaje si la asignación no se encuentra
+                        ClientScript.RegisterStartupScript(this.GetType(), "showMessageCursoG", "showMessageCursoG();", true);
+                    }
+                }
+            }
+            else
+            {
+                // Mostrar un mensaje si el código de asignación no es válido
+                ClientScript.RegisterStartupScript(this.GetType(), "showMessageError", "showMessageError();", true);
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,6 +129,7 @@ namespace Parcial2Web.Profesor
                 if (asignacion != null)
                 {
                     // Igualar los valores de la asignación con los TextBox correspondientes
+                    TextBoxCodAsig.Text = asignacion.codigo_asignacion.ToString();
                     TextBoxFechaAsign.Text = asignacion.fecha_asignacion.ToString("yyyy-MM-dd");
                     TextBoxFinal.Text = asignacion.final.ToString();
                     TextBoxResultado.Text = asignacion.resultado;
@@ -101,6 +151,23 @@ namespace Parcial2Web.Profesor
         {
             GridView1.PageIndex = e.NewPageIndex;
             CargarProfesorCurso();
+        }
+
+        protected void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            string cod = Session["DPI"].ToString();  // Obtener el DPI del profesor desde la sesión
+            string filtro = TextBox2.Text;  // Obtener el filtro de búsqueda del TextBox
+
+            using (var milinq = new DB.DataClasses1DataContext(Conexion.CADENA))
+            {
+                var profes = from prof in LINQ.VistaAsignaProfe
+                             where prof.dpi_profesor == cod &&
+                                   prof.nombre_curso.ToLower().Contains(filtro.ToLower())
+                             select prof; 
+
+                GridViewCursosDisponibles.DataSource = profes;
+                GridViewCursosDisponibles.DataBind();
+            }
         }
     }
 }
