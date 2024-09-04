@@ -33,7 +33,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <asp:HyperLink ID="HyperLink1" CssClass="fs-3 fw-bolder text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop" runat="server">Codigo del Alumno</asp:HyperLink>
-                        <asp:TextBox ID="TextBoxCodAlumno" placeholder="Código del Alumno" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBoxCodAlumno" MaxLength="13" placeholder="Código del Alumno" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="mb-3">

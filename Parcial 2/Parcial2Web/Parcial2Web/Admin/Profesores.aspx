@@ -178,7 +178,7 @@
                     <div style="overflow-x: auto;">
                         <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-bordered table-responsive"
                             DataKeyNames="codigo_prof_curso" AutoGenerateSelectButton="true"
-                            AllowPaging="True" PageSize="3" OnPageIndexChanging="GridViewProfesores_PageIndexChanging">
+                            AllowPaging="True" PageSize="3" OnPageIndexChanging="GridView1_PageIndexChanging">
                             <HeaderStyle CssClass="table-dark" />
                             <RowStyle CssClass="align-middle" />
                             <AlternatingRowStyle CssClass="table-light" />

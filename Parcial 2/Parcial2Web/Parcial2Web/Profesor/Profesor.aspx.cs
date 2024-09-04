@@ -96,6 +96,7 @@ namespace Parcial2Web.Profesor
                         // Guardar los cambios en la base de datos
                         context.SubmitChanges();
                         LimpiarControles();
+                        CargarAsigna();
                         // Mostrar un mensaje de éxito
                         ClientScript.RegisterStartupScript(this.GetType(), "showMessageProfAsign", "showMessageProfAsign();", true);
                     }
@@ -150,7 +151,7 @@ namespace Parcial2Web.Profesor
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            CargarProfesorCurso();
+            CargarAsigna();
         }
 
         protected void TextBox2_TextChanged(object sender, EventArgs e)

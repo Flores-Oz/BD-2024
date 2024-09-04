@@ -304,5 +304,11 @@ namespace Parcial2Web.Admin
                 GridView1.DataBind();
             }
         }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            CargarAsignProfe();
+        }
     }
 }

@@ -65,7 +65,7 @@ namespace Parcial2Web.Alumno
                 if (asignacionExistente != null)
                 {
                     // Si ya existe la asignación, mostrar un mensaje de error
-                    ClientScript.RegisterStartupScript(this.GetType(), "showMessageError", "alert('El alumno ya está asignado a este curso.');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "showMessageCursoG", "showMessageCursoG();", true);
                 }
                 else
                 {
@@ -81,9 +81,9 @@ namespace Parcial2Web.Alumno
                     // Guardar los datos en la base de datos
                     context.Asignacion.InsertOnSubmit(nuevaAsignacion);
                     context.SubmitChanges();
-
+                    CargarCursosAsignados();
                     // Mostrar un mensaje de éxito
-                    ClientScript.RegisterStartupScript(this.GetType(), "showMessageSuccess", "alert('Datos guardados exitosamente');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "showMessageProfAsign", "showMessageProfAsign();", true);
                 }
             }
 

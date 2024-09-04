@@ -71,27 +71,15 @@
     <br />
     <!--Modales-->
     <div id="messageBoxCicloG" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Profesor Ingresado Correctamente
+        Curso Asignado Correctamente
     </div>
     <div id="messageBoxError" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #eb0909; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Error: Campos Vacios
-    </div>
-    <div id="messageBoxErrorC" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #eb0909; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Error: Campos Repetidos
-    </div>
-    <div id="messageBoxEditarAlum" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Profesor Modificado Correctamente
-    </div>
-    <div id="messageBoxAlumNoExistente" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Profesor No Existente
-    </div>
-      <div id="messageBoxProfeAsign" style="display: none; position: fixed; top: 60px; right: 20px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
-        Profesor Asignado Correctamente
+        El alumno ya está asignado a este curso.
     </div>
     <!--Scripts-->
      <script type="text/javascript">
          function showMessageProfAsign() {
-             var messageBox = document.getElementById("messageBoxProfeAsign");
+             var messageBox = document.getElementById("messageBoxCicloG");
              messageBox.style.display = "block";
              setTimeout(function () {
                  messageBox.style.display = "none";
@@ -100,43 +88,7 @@
      </script>
     <script type="text/javascript">
         function showMessageCursoG() {
-            var messageBox = document.getElementById("messageBoxCicloG");
-            messageBox.style.display = "block";
-            setTimeout(function () {
-                messageBox.style.display = "none";
-            }, 3000); // Ocultar el mensaje después de 3 segundos
-        }
-    </script>
-    <script type="text/javascript">
-        function showMessageError() {
             var messageBox = document.getElementById("messageBoxError");
-            messageBox.style.display = "block";
-            setTimeout(function () {
-                messageBox.style.display = "none";
-            }, 3000); // Ocultar el mensaje después de 3 segundos
-        }
-    </script>
-    <script type="text/javascript">
-        function showMessageErrorCursoExistente() {
-            var messageBox = document.getElementById("messageBoxErrorC");
-            messageBox.style.display = "block";
-            setTimeout(function () {
-                messageBox.style.display = "none";
-            }, 3000); // Ocultar el mensaje después de 3 segundos
-        }
-    </script>
-    <script type="text/javascript">
-        function showMessageCursoEditado() {
-            var messageBox = document.getElementById("messageBoxEditarAlum");
-            messageBox.style.display = "block";
-            setTimeout(function () {
-                messageBox.style.display = "none";
-            }, 3000); // Ocultar el mensaje después de 3 segundos
-        }
-    </script>
-    <script type="text/javascript">
-        function showMessageErrorAlumnoNoExistente() {
-            var messageBox = document.getElementById("messageBoxAlumNoExistente");
             messageBox.style.display = "block";
             setTimeout(function () {
                 messageBox.style.display = "none";
