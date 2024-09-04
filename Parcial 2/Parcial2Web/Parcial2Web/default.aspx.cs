@@ -49,6 +49,7 @@ namespace Parcial2Web
                     {
                         // Credenciales válidas para Profesor
                         Session["Usuario"] = profesor.usuario_profesor;
+                        Session["DPI"] = profesor.dpi_profesor.ToString();
                         Response.Redirect("Profesor/Inicio.aspx");
                     }
                     else if (usuario == "ADMIN" && contraseña == "ADMIN123")

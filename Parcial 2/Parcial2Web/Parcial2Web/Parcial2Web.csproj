@@ -75,6 +75,8 @@
     <Content Include="Alumno\Alumno.aspx" />
     <Content Include="Alumno\Inicio.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="Profesor\Inicio.aspx" />
+    <Content Include="Profesor\Profesor.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +149,27 @@
     <Compile Include="MasterWebs\SiteAlumno.Master.designer.cs">
       <DependentUpon>SiteAlumno.Master</DependentUpon>
     </Compile>
+    <Compile Include="MasterWebs\SiteProfesor.Master.cs">
+      <DependentUpon>SiteProfesor.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterWebs\SiteProfesor.Master.designer.cs">
+      <DependentUpon>SiteProfesor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\Profesor.aspx.cs">
+      <DependentUpon>Profesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\Profesor.aspx.designer.cs">
+      <DependentUpon>Profesor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +183,7 @@
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
     <Content Include="MasterWebs\SiteAlumno.Master" />
+    <Content Include="MasterWebs\SiteProfesor.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -168,9 +192,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Profesor\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
