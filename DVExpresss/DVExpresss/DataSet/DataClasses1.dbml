@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parcial2_Progra5" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.alumno" Member="alumnos">
+    <Type Name="alumno">
+      <Column Name="Carne" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="apellido1_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="apellido2_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nombre1_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nombre2_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Fechanac" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Sexo_Alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="estado_alumno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="direccion_alumno" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="celular_alumno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="fechaingreso" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id_muni" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="numero_actualizacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_encargado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

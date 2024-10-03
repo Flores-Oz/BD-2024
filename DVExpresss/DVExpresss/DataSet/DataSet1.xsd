@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Parcial2_Progra5ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Parcial2_Progra5ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DVExpresss.Properties.Settings.GlobalReference.Default.Parcial2_Progra5ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="alumnoTableAdapter" GeneratorDataComponentClassName="alumnoTableAdapter" Name="alumno" UserDataComponentName="alumnoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Parcial2_Progra5ConnectionString (Settings)" DbObjectName="Parcial2_Progra5.dbo.alumno" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataReporte" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetDataReporte" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataReporte" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Carne, apellido1_alumno, apellido2_alumno, nombre1_alumno, nombre2_alumno, Fechanac, Sexo_Alumno, estado_alumno, direccion_alumno, celular_alumno, fechaingreso, id_muni, numero_actualizacion, id_encargado FROM dbo.alumno</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Carne" DataSetColumn="Carne" />
+              <Mapping SourceColumn="apellido1_alumno" DataSetColumn="apellido1_alumno" />
+              <Mapping SourceColumn="apellido2_alumno" DataSetColumn="apellido2_alumno" />
+              <Mapping SourceColumn="nombre1_alumno" DataSetColumn="nombre1_alumno" />
+              <Mapping SourceColumn="nombre2_alumno" DataSetColumn="nombre2_alumno" />
+              <Mapping SourceColumn="Fechanac" DataSetColumn="Fechanac" />
+              <Mapping SourceColumn="Sexo_Alumno" DataSetColumn="Sexo_Alumno" />
+              <Mapping SourceColumn="estado_alumno" DataSetColumn="estado_alumno" />
+              <Mapping SourceColumn="direccion_alumno" DataSetColumn="direccion_alumno" />
+              <Mapping SourceColumn="celular_alumno" DataSetColumn="celular_alumno" />
+              <Mapping SourceColumn="fechaingreso" DataSetColumn="fechaingreso" />
+              <Mapping SourceColumn="id_muni" DataSetColumn="id_muni" />
+              <Mapping SourceColumn="numero_actualizacion" DataSetColumn="numero_actualizacion" />
+              <Mapping SourceColumn="id_encargado" DataSetColumn="id_encargado" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="alumno" msprop:Generator_RowEvHandlerName="alumnoRowChangeEventHandler" msprop:Generator_RowDeletedName="alumnoRowDeleted" msprop:Generator_RowDeletingName="alumnoRowDeleting" msprop:Generator_RowEvArgName="alumnoRowChangeEvent" msprop:Generator_TablePropName="alumno" msprop:Generator_RowChangedName="alumnoRowChanged" msprop:Generator_RowChangingName="alumnoRowChanging" msprop:Generator_TableClassName="alumnoDataTable" msprop:Generator_RowClassName="alumnoRow" msprop:Generator_TableVarName="tablealumno" msprop:Generator_UserTableName="alumno">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Carne" msprop:Generator_ColumnPropNameInRow="Carne" msprop:Generator_ColumnPropNameInTable="CarneColumn" msprop:Generator_ColumnVarNameInTable="columnCarne" msprop:Generator_UserColumnName="Carne">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido1_alumno" msprop:Generator_ColumnPropNameInRow="apellido1_alumno" msprop:Generator_ColumnPropNameInTable="apellido1_alumnoColumn" msprop:Generator_ColumnVarNameInTable="columnapellido1_alumno" msprop:Generator_UserColumnName="apellido1_alumno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido2_alumno" msprop:Generator_ColumnPropNameInRow="apellido2_alumno" msprop:Generator_ColumnPropNameInTable="apellido2_alumnoColumn" msprop:Generator_ColumnVarNameInTable="columnapellido2_alumno" msprop:Generator_UserColumnName="apellido2_alumno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombre1_alumno" msprop:Generator_ColumnPropNameInRow="nombre1_alumno" msprop:Generator_ColumnPropNameInTable="nombre1_alumnoColumn" msprop:Generator_ColumnVarNameInTable="columnnombre1_alumno" msprop:Generator_UserColumnName="nombre1_alumno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombre2_alumno" msprop:Generator_ColumnPropNameInRow="nombre2_alumno" msprop:Generator_ColumnPropNameInTable="nombre2_alumnoColumn" msprop:Generator_ColumnVarNameInTable="columnnombre2_alumno" msprop:Generator_UserColumnName="nombre2_alumno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fechanac" msprop:Generator_ColumnPropNameInRow="Fechanac" msprop:Generator_ColumnPropNameInTable="FechanacColumn" msprop:Generator_ColumnVarNameInTable="columnFechanac" msprop:Generator_UserColumnName="Fechanac" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Sexo_Alumno" msprop:Generator_ColumnPropNameInRow="Sexo_Alumno" msprop:Generator_ColumnPropNameInTable="Sexo_AlumnoColumn" msprop:Generator_ColumnVarNameInTable="columnSexo_Alumno" msprop:Generator_UserColumnName="Sexo_Alumno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="estado_alumno" msprop:Generator_ColumnPropNameInRow="estado_alumno" msprop:Generator_ColumnPropNameInTable="estado_alumnoColumn" msprop:Generator_ColumnVarNameInTable="columnestado_alumno" msprop:Generator_UserColumnName="estado_alumno" type="xs:int" minOccurs="0" />
+              <xs:element name="direccion_alumno" msprop:Generator_ColumnPropNameInRow="direccion_alumno" msprop:Generator_ColumnPropNameInTable="direccion_alumnoColumn" msprop:Generator_ColumnVarNameInTable="columndireccion_alumno" msprop:Generator_UserColumnName="direccion_alumno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="celular_alumno" msprop:Generator_ColumnPropNameInRow="celular_alumno" msprop:Generator_ColumnPropNameInTable="celular_alumnoColumn" msprop:Generator_ColumnVarNameInTable="columncelular_alumno" msprop:Generator_UserColumnName="celular_alumno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaingreso" msprop:Generator_ColumnPropNameInRow="fechaingreso" msprop:Generator_ColumnPropNameInTable="fechaingresoColumn" msprop:Generator_ColumnVarNameInTable="columnfechaingreso" msprop:Generator_UserColumnName="fechaingreso" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="id_muni" msprop:Generator_ColumnPropNameInRow="id_muni" msprop:Generator_ColumnPropNameInTable="id_muniColumn" msprop:Generator_ColumnVarNameInTable="columnid_muni" msprop:Generator_UserColumnName="id_muni" type="xs:int" minOccurs="0" />
+              <xs:element name="numero_actualizacion" msprop:Generator_ColumnPropNameInRow="numero_actualizacion" msprop:Generator_ColumnPropNameInTable="numero_actualizacionColumn" msprop:Generator_ColumnVarNameInTable="columnnumero_actualizacion" msprop:Generator_UserColumnName="numero_actualizacion" type="xs:int" minOccurs="0" />
+              <xs:element name="id_encargado" msprop:Generator_ColumnPropNameInRow="id_encargado" msprop:Generator_ColumnPropNameInTable="id_encargadoColumn" msprop:Generator_ColumnVarNameInTable="columnid_encargado" msprop:Generator_UserColumnName="id_encargado" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:alumno" />
+      <xs:field xpath="mstns:Carne" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
