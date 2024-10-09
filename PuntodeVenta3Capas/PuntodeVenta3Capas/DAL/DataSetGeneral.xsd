@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetGeneral" targetNamespace="http://tempuri.org/DataSetGeneral.xsd" xmlns:mstns="http://tempuri.org/DataSetGeneral.xsd" xmlns="http://tempuri.org/DataSetGeneral.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="6" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Ejercicio1PConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Ejercicio1PConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Ejercicio1PConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Ejercicio1PConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Ejercicio1PConnectionString1 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Ejercicio1PConnectionString1.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Ejercicio1PConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Ejercicio1PConnectionString2 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Ejercicio1PConnectionString2.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Ejercicio1PConnectionString3" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Ejercicio1PConnectionString3 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Ejercicio1PConnectionString3.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Ejercicio1PConnectionString4" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Ejercicio1PConnectionString4 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Ejercicio1PConnectionString4.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Ejercicio1PConnectionString5" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Ejercicio1PConnectionString5 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Ejercicio1PConnectionString5.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="SmithInventoryConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SmithInventoryConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.SmithInventoryConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Detalle_VentaTableAdapter" GeneratorDataComponentClassName="Detalle_VentaTableAdapter" Name="Detalle_Venta" UserDataComponentName="Detalle_VentaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Ejercicio1PConnectionString1 (Web.config)" DbObjectName="Ejercicio1P.dbo.Detalle_Venta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Detalle_Venta] WHERE (([codigo_detalle_venta] = @Original_codigo_detalle_venta))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_codigo_detalle_venta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="codigo_detalle_venta" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Detalle_Venta] ([cantidad], [precio_costo], [precio_venta], [subtotal], [codigo_producto], [codigo_venta]) VALUES (@cantidad, @precio_costo, @precio_venta, @subtotal, @codigo_producto, @codigo_venta)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@cantidad" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cantidad" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@precio_costo" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="precio_costo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@precio_venta" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="precio_venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@subtotal" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="subtotal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@codigo_producto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="codigo_producto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@codigo_venta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="codigo_venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT codigo_detalle_venta, cantidad, precio_costo, precio_venta, subtotal, codigo_producto, codigo_venta FROM dbo.Detalle_Venta</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Detalle_Venta] SET [cantidad] = @cantidad, [precio_costo] = @precio_costo, [precio_venta] = @precio_venta, [subtotal] = @subtotal, [codigo_producto] = @codigo_producto, [codigo_venta] = @codigo_venta WHERE (([codigo_detalle_venta] = @Original_codigo_detalle_venta))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@cantidad" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cantidad" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@precio_costo" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="precio_costo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@precio_venta" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="precio_venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@subtotal" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="subtotal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@codigo_producto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="codigo_producto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@codigo_venta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="codigo_venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_codigo_detalle_venta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="codigo_detalle_venta" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="codigo_detalle_venta" DataSetColumn="codigo_detalle_venta" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+              <Mapping SourceColumn="precio_costo" DataSetColumn="precio_costo" />
+              <Mapping SourceColumn="precio_venta" DataSetColumn="precio_venta" />
+              <Mapping SourceColumn="subtotal" DataSetColumn="subtotal" />
+              <Mapping SourceColumn="codigo_producto" DataSetColumn="codigo_producto" />
+              <Mapping SourceColumn="codigo_venta" DataSetColumn="codigo_venta" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Enca_VentaTableAdapter" GeneratorDataComponentClassName="Enca_VentaTableAdapter" Name="Enca_Venta" UserDataComponentName="Enca_VentaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Ejercicio1PConnectionString4 (Web.config)" DbObjectName="Ejercicio1P.dbo.Enca_Venta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Enca_Venta] WHERE (([codigo_venta] = @Original_codigo_venta))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_codigo_venta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="codigo_venta" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Enca_Venta] ([fecha_venta], [total_venta], [total_productos], [nit_proveedor]) VALUES (@fecha_venta, @total_venta, @total_productos, @nit_proveedor)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fecha_venta" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="fecha_venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@total_venta" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="total_venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@total_productos" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="total_productos" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nit_proveedor" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nit_proveedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT codigo_venta, fecha_venta, total_venta, total_productos, nit_proveedor FROM dbo.Enca_Venta</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Enca_Venta] SET [fecha_venta] = @fecha_venta, [total_venta] = @total_venta, [total_productos] = @total_productos, [nit_proveedor] = @nit_proveedor WHERE (([codigo_venta] = @Original_codigo_venta))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fecha_venta" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="fecha_venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@total_venta" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="total_venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@total_productos" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="total_productos" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nit_proveedor" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nit_proveedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_codigo_venta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="codigo_venta" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="codigo_venta" DataSetColumn="codigo_venta" />
+              <Mapping SourceColumn="fecha_venta" DataSetColumn="fecha_venta" />
+              <Mapping SourceColumn="total_venta" DataSetColumn="total_venta" />
+              <Mapping SourceColumn="total_productos" DataSetColumn="total_productos" />
+              <Mapping SourceColumn="nit_proveedor" DataSetColumn="nit_proveedor" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClienteTableAdapter" GeneratorDataComponentClassName="ClienteTableAdapter" Name="Cliente" UserDataComponentName="ClienteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Ejercicio1PConnectionString (Web.config)" DbObjectName="Ejercicio1P.dbo.Cliente" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="MostrarClientes" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="MostrarClientes" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="MostrarClientes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT nit_cliente, nombre_cliente, apellido_cliente, direccion_cliente, telefono_cliente, fechanac_cliente, estado_cliente, codigo_municipio FROM dbo.Cliente</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nit_cliente" DataSetColumn="nit_cliente" />
+              <Mapping SourceColumn="nombre_cliente" DataSetColumn="nombre_cliente" />
+              <Mapping SourceColumn="apellido_cliente" DataSetColumn="apellido_cliente" />
+              <Mapping SourceColumn="direccion_cliente" DataSetColumn="direccion_cliente" />
+              <Mapping SourceColumn="telefono_cliente" DataSetColumn="telefono_cliente" />
+              <Mapping SourceColumn="fechanac_cliente" DataSetColumn="fechanac_cliente" />
+              <Mapping SourceColumn="estado_cliente" DataSetColumn="estado_cliente" />
+              <Mapping SourceColumn="codigo_municipio" DataSetColumn="codigo_municipio" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Ejercicio1PConnectionString (Web.config)" DbObjectName="Ejercicio1P.dbo.Cliente" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="BuscarPorNit" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="BuscarPorNit" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="BuscarPorNit">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT nit_cliente, nombre_cliente, apellido_cliente, direccion_cliente, telefono_cliente, fechanac_cliente, estado_cliente, codigo_municipio
+FROM     Cliente
+WHERE  (nit_cliente = @Nit)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Nit" ColumnName="nit_cliente" DataSourceName="Ejercicio1P.dbo.Cliente" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@Nit" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="nit_cliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProductoTableAdapter" GeneratorDataComponentClassName="ProductoTableAdapter" Name="Producto" UserDataComponentName="ProductoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Ejercicio1PConnectionString (Web.config)" DbObjectName="Ejercicio1P.dbo.Producto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ID_Producto, nombre_producto, precio_costo, precio_venta
+FROM     Producto</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_Producto" DataSetColumn="ID_Producto" />
+              <Mapping SourceColumn="Nombre_Producto" DataSetColumn="Nombre_Producto" />
+              <Mapping SourceColumn="Precio_Costo" DataSetColumn="Precio_Costo" />
+              <Mapping SourceColumn="Precio_Venta" DataSetColumn="Precio_Venta" />
+              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
+              <Mapping SourceColumn="ID_Categoria" DataSetColumn="ID_Categoria" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetGeneral" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetGeneral" msprop:Generator_DataSetName="DataSetGeneral">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Detalle_Venta" msprop:Generator_RowEvHandlerName="Detalle_VentaRowChangeEventHandler" msprop:Generator_RowDeletedName="Detalle_VentaRowDeleted" msprop:Generator_RowDeletingName="Detalle_VentaRowDeleting" msprop:Generator_RowEvArgName="Detalle_VentaRowChangeEvent" msprop:Generator_TablePropName="Detalle_Venta" msprop:Generator_RowChangedName="Detalle_VentaRowChanged" msprop:Generator_RowChangingName="Detalle_VentaRowChanging" msprop:Generator_TableClassName="Detalle_VentaDataTable" msprop:Generator_RowClassName="Detalle_VentaRow" msprop:Generator_TableVarName="tableDetalle_Venta" msprop:Generator_UserTableName="Detalle_Venta">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codigo_detalle_venta" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="codigo_detalle_venta" msprop:Generator_ColumnPropNameInTable="codigo_detalle_ventaColumn" msprop:Generator_ColumnVarNameInTable="columncodigo_detalle_venta" msprop:Generator_UserColumnName="codigo_detalle_venta" type="xs:int" />
+              <xs:element name="cantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_UserColumnName="cantidad" type="xs:int" />
+              <xs:element name="precio_costo" msprop:Generator_ColumnPropNameInRow="precio_costo" msprop:Generator_ColumnPropNameInTable="precio_costoColumn" msprop:Generator_ColumnVarNameInTable="columnprecio_costo" msprop:Generator_UserColumnName="precio_costo" type="xs:decimal" />
+              <xs:element name="precio_venta" msprop:Generator_ColumnPropNameInRow="precio_venta" msprop:Generator_ColumnPropNameInTable="precio_ventaColumn" msprop:Generator_ColumnVarNameInTable="columnprecio_venta" msprop:Generator_UserColumnName="precio_venta" type="xs:decimal" />
+              <xs:element name="subtotal" msprop:Generator_ColumnPropNameInRow="subtotal" msprop:Generator_ColumnPropNameInTable="subtotalColumn" msprop:Generator_ColumnVarNameInTable="columnsubtotal" msprop:Generator_UserColumnName="subtotal" type="xs:decimal" />
+              <xs:element name="codigo_producto" msprop:Generator_ColumnPropNameInRow="codigo_producto" msprop:Generator_ColumnPropNameInTable="codigo_productoColumn" msprop:Generator_ColumnVarNameInTable="columncodigo_producto" msprop:Generator_UserColumnName="codigo_producto" type="xs:int" />
+              <xs:element name="codigo_venta" msprop:Generator_ColumnPropNameInRow="codigo_venta" msprop:Generator_ColumnPropNameInTable="codigo_ventaColumn" msprop:Generator_ColumnVarNameInTable="columncodigo_venta" msprop:Generator_UserColumnName="codigo_venta" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Enca_Venta" msprop:Generator_RowEvHandlerName="Enca_VentaRowChangeEventHandler" msprop:Generator_RowDeletedName="Enca_VentaRowDeleted" msprop:Generator_RowDeletingName="Enca_VentaRowDeleting" msprop:Generator_RowEvArgName="Enca_VentaRowChangeEvent" msprop:Generator_TablePropName="Enca_Venta" msprop:Generator_RowChangedName="Enca_VentaRowChanged" msprop:Generator_RowChangingName="Enca_VentaRowChanging" msprop:Generator_TableClassName="Enca_VentaDataTable" msprop:Generator_RowClassName="Enca_VentaRow" msprop:Generator_TableVarName="tableEnca_Venta" msprop:Generator_UserTableName="Enca_Venta">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codigo_venta" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="codigo_venta" msprop:Generator_ColumnPropNameInTable="codigo_ventaColumn" msprop:Generator_ColumnVarNameInTable="columncodigo_venta" msprop:Generator_UserColumnName="codigo_venta" type="xs:int" />
+              <xs:element name="fecha_venta" msprop:Generator_ColumnPropNameInRow="fecha_venta" msprop:Generator_ColumnPropNameInTable="fecha_ventaColumn" msprop:Generator_ColumnVarNameInTable="columnfecha_venta" msprop:Generator_UserColumnName="fecha_venta" type="xs:dateTime" />
+              <xs:element name="total_venta" msprop:Generator_ColumnPropNameInRow="total_venta" msprop:Generator_ColumnPropNameInTable="total_ventaColumn" msprop:Generator_ColumnVarNameInTable="columntotal_venta" msprop:Generator_UserColumnName="total_venta" type="xs:decimal" />
+              <xs:element name="total_productos" msprop:Generator_ColumnPropNameInRow="total_productos" msprop:Generator_ColumnPropNameInTable="total_productosColumn" msprop:Generator_ColumnVarNameInTable="columntotal_productos" msprop:Generator_UserColumnName="total_productos" type="xs:int" />
+              <xs:element name="nit_proveedor" msprop:Generator_ColumnPropNameInRow="nit_proveedor" msprop:Generator_ColumnPropNameInTable="nit_proveedorColumn" msprop:Generator_ColumnVarNameInTable="columnnit_proveedor" msprop:Generator_UserColumnName="nit_proveedor">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Cliente" msprop:Generator_RowEvHandlerName="ClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteRowDeleted" msprop:Generator_RowDeletingName="ClienteRowDeleting" msprop:Generator_RowEvArgName="ClienteRowChangeEvent" msprop:Generator_TablePropName="Cliente" msprop:Generator_RowChangedName="ClienteRowChanged" msprop:Generator_RowChangingName="ClienteRowChanging" msprop:Generator_TableClassName="ClienteDataTable" msprop:Generator_RowClassName="ClienteRow" msprop:Generator_TableVarName="tableCliente" msprop:Generator_UserTableName="Cliente">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nit_cliente" msprop:Generator_ColumnPropNameInRow="nit_cliente" msprop:Generator_ColumnPropNameInTable="nit_clienteColumn" msprop:Generator_ColumnVarNameInTable="columnnit_cliente" msprop:Generator_UserColumnName="nit_cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombre_cliente" msprop:Generator_ColumnPropNameInRow="nombre_cliente" msprop:Generator_ColumnPropNameInTable="nombre_clienteColumn" msprop:Generator_ColumnVarNameInTable="columnnombre_cliente" msprop:Generator_UserColumnName="nombre_cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido_cliente" msprop:Generator_ColumnPropNameInRow="apellido_cliente" msprop:Generator_ColumnPropNameInTable="apellido_clienteColumn" msprop:Generator_ColumnVarNameInTable="columnapellido_cliente" msprop:Generator_UserColumnName="apellido_cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="direccion_cliente" msprop:Generator_ColumnPropNameInRow="direccion_cliente" msprop:Generator_ColumnPropNameInTable="direccion_clienteColumn" msprop:Generator_ColumnVarNameInTable="columndireccion_cliente" msprop:Generator_UserColumnName="direccion_cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="telefono_cliente" msprop:Generator_ColumnPropNameInRow="telefono_cliente" msprop:Generator_ColumnPropNameInTable="telefono_clienteColumn" msprop:Generator_ColumnVarNameInTable="columntelefono_cliente" msprop:Generator_UserColumnName="telefono_cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechanac_cliente" msprop:Generator_ColumnPropNameInRow="fechanac_cliente" msprop:Generator_ColumnPropNameInTable="fechanac_clienteColumn" msprop:Generator_ColumnVarNameInTable="columnfechanac_cliente" msprop:Generator_UserColumnName="fechanac_cliente" type="xs:dateTime" />
+              <xs:element name="estado_cliente" msprop:Generator_ColumnPropNameInRow="estado_cliente" msprop:Generator_ColumnPropNameInTable="estado_clienteColumn" msprop:Generator_ColumnVarNameInTable="columnestado_cliente" msprop:Generator_UserColumnName="estado_cliente" type="xs:boolean" />
+              <xs:element name="codigo_municipio" msprop:Generator_ColumnPropNameInRow="codigo_municipio" msprop:Generator_ColumnPropNameInTable="codigo_municipioColumn" msprop:Generator_ColumnVarNameInTable="columncodigo_municipio" msprop:Generator_UserColumnName="codigo_municipio" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Producto" msprop:Generator_RowEvHandlerName="ProductoRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductoRowDeleted" msprop:Generator_RowDeletingName="ProductoRowDeleting" msprop:Generator_RowEvArgName="ProductoRowChangeEvent" msprop:Generator_TablePropName="Producto" msprop:Generator_RowChangedName="ProductoRowChanged" msprop:Generator_RowChangingName="ProductoRowChanging" msprop:Generator_TableClassName="ProductoDataTable" msprop:Generator_RowClassName="ProductoRow" msprop:Generator_TableVarName="tableProducto" msprop:Generator_UserTableName="Producto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_Producto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID_Producto" msprop:Generator_ColumnPropNameInTable="ID_ProductoColumn" msprop:Generator_ColumnVarNameInTable="columnID_Producto" msprop:Generator_UserColumnName="ID_Producto" type="xs:int" />
+              <xs:element name="Nombre_Producto" msprop:Generator_ColumnPropNameInRow="Nombre_Producto" msprop:Generator_ColumnPropNameInTable="Nombre_ProductoColumn" msprop:Generator_ColumnVarNameInTable="columnNombre_Producto" msprop:Generator_UserColumnName="Nombre_Producto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Precio_Costo" msprop:Generator_ColumnPropNameInRow="Precio_Costo" msprop:Generator_ColumnPropNameInTable="Precio_CostoColumn" msprop:Generator_ColumnVarNameInTable="columnPrecio_Costo" msprop:Generator_UserColumnName="Precio_Costo" type="xs:decimal" />
+              <xs:element name="Precio_Venta" msprop:Generator_ColumnPropNameInRow="Precio_Venta" msprop:Generator_ColumnPropNameInTable="Precio_VentaColumn" msprop:Generator_ColumnVarNameInTable="columnPrecio_Venta" msprop:Generator_UserColumnName="Precio_Venta" type="xs:decimal" />
+              <xs:element name="Estado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_UserColumnName="Estado" type="xs:boolean" />
+              <xs:element name="ID_Categoria" msprop:Generator_ColumnPropNameInRow="ID_Categoria" msprop:Generator_ColumnPropNameInTable="ID_CategoriaColumn" msprop:Generator_ColumnVarNameInTable="columnID_Categoria" msprop:Generator_UserColumnName="ID_Categoria" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Detalle_Venta" />
+      <xs:field xpath="mstns:codigo_detalle_venta" />
+    </xs:unique>
+    <xs:unique name="Enca_Venta_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Enca_Venta" />
+      <xs:field xpath="mstns:codigo_venta" />
+    </xs:unique>
+    <xs:unique name="Cliente_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Cliente" />
+      <xs:field xpath="mstns:nit_cliente" />
+    </xs:unique>
+    <xs:unique name="Producto_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Producto" />
+      <xs:field xpath="mstns:ID_Producto" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
