@@ -177,6 +177,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ClassCliente.cs" />
+    <Compile Include="BLL\ClassCompra.cs" />
+    <Compile Include="BLL\ClassProducto.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="DAL\DataSetGeneral.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -212,7 +214,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="PDF\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -12,6 +12,7 @@ namespace PuntodeVenta3Capas.BLL
     {
         //atributos instancia clase
         private ClienteTableAdapter cliente = new ClienteTableAdapter();
+        private Cliente1TableAdapter cliente1 = new Cliente1TableAdapter();
         //encapsulamiento, propiedades
         private ClienteTableAdapter CLIENTE
         {
@@ -22,14 +23,24 @@ namespace PuntodeVenta3Capas.BLL
                 return cliente;
             }
         }
+        private Cliente1TableAdapter CLIENTE1
+        {
+            get
+            {
+                if (cliente1 == null)
+                    cliente1 = new Cliente1TableAdapter();
+                return cliente1;
+            }
+        }
         //metodo
         public DataTable LlenarClientes()
         {
             return CLIENTE.GetData();
         }
-        public DataTable BuscarCLiente(string NIT)
+        public DataTable BuscarCliente(string NIT)
         {
-            return CLIENTE.GetData();
+            return CLIENTE1.GetDataByNIT(NIT);
         }
+
     }
 }
